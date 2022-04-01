@@ -182,7 +182,7 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
                 highlightWrong={highlightWrong}
                 submitAnswer={(answer: string) => submitAnswer(answer)}
             ></Answer>
-            <Button onClick={() => router.push(`/challenges/grade/${router.query.gradeNum}`)}>Pick another challenge</Button>
+            <Button onClick={() => router.push(`/challenges/grade/${Number(router.query.gradeNum) + 1}`)}>Pick another challenge</Button>
             {props.settings.instructions && <p><span style={{ fontWeight: 'bolder' }}>FYI: </span>{props.settings.instructions}</p>}
         </div>}
         {completed &&
