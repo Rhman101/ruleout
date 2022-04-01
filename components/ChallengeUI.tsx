@@ -184,7 +184,7 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
             ></Answer>
             <Button onClick={() => router.push(`/challenges/grade/${Number(router.query.gradeNum) + 1}`)}>Pick another challenge</Button>
             {props.settings.instructions && <p><span style={{ fontWeight: 'bolder' }}>FYI: </span>{props.settings.instructions}</p>}
-        </div>}
+        </div>} 
         {completed &&
             <div className={styles.mainDiv}>
                 <Result
