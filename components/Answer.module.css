@@ -1,0 +1,14 @@
+.questionInput {
+    text-align: center;
+    min-width: 100px;
+    max-width: fit-content;
+    min-height: 50px;
+    max-height: fit-content;
+    margin: 15px;
+}
+
+.questionInput > span {
+    font-size: 20pt;
+    text-align: center;
+    margin-top: 10px;
+}

@@ -1,0 +1,113 @@
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.header {
+  background-color: #33cca6;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gradeItem {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.gradeItem:hover {
+  background-color: #0099cc;
+}
+
+.topicItem {
+  padding: 8px;
+  margin-bottom: 7px;
+  margin-left: 12px;
+  background-color: #368faf;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.topicItem:hover {
+  background-color: #30738b;
+}
+
+.challengeItem:hover {
+  background-color: #30738b;
+}
+
+.challengeItem {
+  padding: 8px;
+  margin-bottom: 7px;
+  margin-left: 24px;
+  background-color: #6f8790;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.challengeItem:hover {
+  background-color: #a9c0c8;
+}
+
+.aside {
+  background-color: #33b5e5;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
+
+.col {
+  float: left;
+  padding: 15px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .cols1 {width: 8.33%;}
+  .cols2 {width: 16.66%;}
+  .cols3 {width: 25%;}
+  .cols4 {width: 33.33%;}
+  .cols5 {width: 41.66%;}
+  .cols6 {width: 50%;}
+  .cols7 {width: 58.33%;}
+  .cols8 {width: 66.66%;}
+  .cols9 {width: 75%;}
+  .cols10 {width: 83.33%;}
+  .cols11 {width: 91.66%;}
+  .cols12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col1 {width: 8.33%;}
+  .col2 {width: 16.66%;}
+  .col3 {width: 25%;}
+  .col4 {width: 33.33%;}
+  .col5 {width: 41.66%;}
+  .col6 {width: 50%;}
+  .col7 {width: 58.33%;}
+  .col8 {width: 66.66%;}
+  .col9 {width: 75%;}
+  .col10 {width: 83.33%;}
+  .col11 {width: 91.66%;}
+  .col12 {width: 100%;}
+}
