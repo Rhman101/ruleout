@@ -135,6 +135,7 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
                 generateQuestion();
             }
         } else {
+            handleIncorrect();
             if (firstAttempt) {
                 if (level === 1 || level === 2) {
                     updateTempHistory(false);
@@ -162,6 +163,13 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
         setDidWin(false);
     }
 
+    const [highlightWrong, setHighlightWrong] = useState(false);
+
+    const handleIncorrect = () => {
+        setHighlightWrong(true);
+        setTimeout(() => setHighlightWrong(false), 300);
+    }
+
     return <>
         {!completed && <div className={styles.mainDiv}>
             {props.settings.instructions.length > 0 && <p>FYI: {props.settings.instructions}</p>}
@@ -171,9 +179,11 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
             {level !== 1 && <Timer question={question.question} timeOut={() => submitAnswer()} seconds={level === 2 ? Number(props.settings.secondsStageTwo) : Number(props.settings.secondsStageThree)}></Timer>}
             <Question question={question.question}></Question>
             <Answer
+                highlightWrong={highlightWrong}
                 submitAnswer={(answer: string) => submitAnswer(answer)}
             ></Answer>
             <Button onClick={() => router.push(`/challenges/grade/${router.query.gradeNum}`)}>Pick another challenge</Button>
+            {props.settings.instructions && <p><span style={{ fontWeight: 'bolder' }}>FYI: </span>{props.settings.instructions}</p>}
         </div>}
         {completed &&
             <div className={styles.mainDiv}>
@@ -184,7 +194,7 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
                     attempted={attempted}
                 ></Result>
             </div>}
-        {displayModal && <WelcomeModal></WelcomeModal>}
+        {displayModal && <WelcomeModal handleClose={() => {}}></WelcomeModal>}
     </>
 
 }

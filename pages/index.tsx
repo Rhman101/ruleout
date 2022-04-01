@@ -80,6 +80,12 @@ const Home: NextPage = () => {
                 <p>CAPS-aligned</p>
                 <p>Skill-building</p>
                 <p>Results-oriented</p>
+                <h4 style={{color: '#3d4fad'}}>Available Grades</h4>
+                {gradeTopicChallenges.map((grade, gradeIndx) =>
+                  <Link href={`/challenges/grade/${gradeIndx + 1}`} passHref key={gradeIndx}>
+                    <div style={{ margin: '5px' }}><Button variant="info" size='sm'>{grade.name}</Button></div>
+                  </Link>
+                )}
               </div>
             </Col>
             <Col>
@@ -124,7 +130,7 @@ const Home: NextPage = () => {
             )}
           </Row>
 
-          {displayModal && <WelcomeModal></WelcomeModal>}
+          {displayModal && <WelcomeModal handleClose={() => setDisplayModal(false)}></WelcomeModal>}
 
           <Row>
             {secondInfoBoxes.map((elem, indx) => <Col key={indx} className={styles.detailsBox}>

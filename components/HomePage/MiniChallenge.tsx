@@ -67,28 +67,39 @@ const MiniChallengeUI: React.FC<SettingProps> = (props: SettingProps) => {
             }
             generateQuestion()
         } else {
+            handleIncorrect();
             if (firstAttempt) {
                 setFirstAttempt(false);
             }
         }
     }
 
+    const [highlightWrong, setHighlightWrong] = useState(false);
+
+    const handleIncorrect = () => {
+        setHighlightWrong(true);
+        setTimeout(() => setHighlightWrong(false), 300);
+    }
+
     return <>
         {correct < 3 && <>
             <p>Try a question from the {challenge.name} challenge!</p>
+
             {loaded && <>
                 <Question question={question.question}></Question>
                 <Answer
                     submitAnswer={(answer: string) => submitAnswer(answer)}
+                    highlightWrong={highlightWrong}
                 ></Answer>
             </>}
             <p>{grade} questions correct: {correct}.</p>
             <p>Can you reach 3?</p>
+            {challenge.settings.instructions && <p><span style={{ fontWeight: 'bolder' }}>FYI: </span>{challenge.settings.instructions}</p>}
         </>}
         {correct > 2 && <>
             <p>{`Too easy for you? For complete, timed, CAPS-aligned challenges, click on the button below!`}</p>
             <Link href={'/challenges'} passHref><Button>Challenge Accepted!</Button></Link>
-            <WelcomeModal></WelcomeModal>
+            <WelcomeModal handleClose={() => {}}></WelcomeModal>
         </>
         }
     </>

@@ -6,7 +6,8 @@ import style from './Answer.module.css';
 addStyles();
 
 interface Props {
-    submitAnswer: Function
+    submitAnswer: Function,
+    highlightWrong: boolean
 }
 
 const Question: React.FC<Props> = (props) => {
@@ -45,7 +46,7 @@ const Question: React.FC<Props> = (props) => {
         // mathquillDidMount={() => console.log('mounted')}
         />
         <br />
-        <Button onClick={() => submitAnswer()}
+        <Button onClick={() => submitAnswer()} variant={props.highlightWrong ? 'danger' : 'primary'}
         >Submit</Button>
         {!pressedEnter && <p>{"PS: Press \"enter\" to submit your answer!"}</p>}
     </div>

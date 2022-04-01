@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
-const WelcomeModal: React.FC = () => {
+interface SettingProps {
+    handleClose: Function
+}
+
+const WelcomeModal: React.FC<SettingProps> = (props: SettingProps) => {
     const [show, setShow] = useState(true);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false)
+        props.handleClose();
+    };
 
     return <>
 
