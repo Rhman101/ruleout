@@ -1,19 +1,21 @@
-import Link from 'next/link';
-import styles from './Layout.module.css';
-import gradeTopicChallenges from "../constants/gradeTopicChallenges";
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { AppContext } from 'next/app';
-import { useAppContext } from '../context/state';
-import { connected } from 'process';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faSquareRootVariable, faAt, faUserPen, faCircleQuestion, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+// import Link from 'next/link';
+// import styles from './Layout.module.css';
+// import gradeTopicChallenges from "../constants/gradeTopicChallenges";
+// import { useEffect } from 'react';
+// import { useRouter } from 'next/router';
+// import { AppContext } from 'next/app';
+// import { useAppContext } from '../context/state';
+// import { connected } from 'process';
+// import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faArrowLeft, faSquareRootVariable, faAt, faUserPen, faCircleQuestion, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import NavBar from './Header/NavBar';
 
 const Layout: React.FC<{}> = ({ children }) => {
 
   return <>
-    <Navbar bg="light" expand="md">
+  <NavBar></NavBar>
+    {/* <Navbar bg="light" expand="md">
       <Container>
         <Link href='/' passHref><Navbar.Brand href="#home">
           <FontAwesomeIcon icon={faSquareRootVariable}></FontAwesomeIcon>{'   '}
@@ -32,7 +34,7 @@ const Layout: React.FC<{}> = ({ children }) => {
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </Navbar> */}
 
     {children}
 
