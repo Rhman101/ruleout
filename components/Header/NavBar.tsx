@@ -59,6 +59,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
+const A = styled('a')(({ theme }) => ({
+    textDecoration: 'none',
+    color: theme.palette.primary.contrastText,
+    ":hover": {
+        color: theme.palette.primary.contrastText
+    }
+}));
+
 export default function PrimarySearchAppBar() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -172,14 +180,16 @@ export default function PrimarySearchAppBar() {
                         <MenuIcon />
                     </IconButton> */}
                     <Link passHref href='/'>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ display: { xs: 'none', sm: 'block' } }}
-                        >
-                            SA Math Challenge
-                        </Typography>
+                        <A>
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="div"
+                                sx={{ display: { xs: 'none', sm: 'block' } }}
+                            >
+                                SA Math Challenge
+                            </Typography>
+                        </A>
                     </Link>
                     {/* <Search>
                         <SearchIconWrapper>
