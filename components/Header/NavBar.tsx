@@ -182,12 +182,20 @@ export default function PrimarySearchAppBar() {
                     <Link passHref href='/'>
                         <A>
                             <Typography
-                                variant="h6"
+                                variant="h4"
                                 noWrap
                                 component="div"
-                                sx={{ display: { xs: 'none', sm: 'block' } }}
+                                sx={{ display: { xs: 'none', sm: 'block' }, padding: '5px' }}
                             >
                                 SA Math Challenge
+                            </Typography>
+                            <Typography
+                                variant="body2"
+                                noWrap
+                                component="div"
+                                sx={{ display: { xs: 'none', sm: 'block', padding: '5px' } }}
+                            >
+                                in development... 
                             </Typography>
                         </A>
                     </Link>
