@@ -7,13 +7,13 @@ import gradeTopicChallenges from '../../constants/gradeTopicChallenges';
 import Link from 'next/link';
 
 const Layout: React.FC<{}> = ({ children }) => {
-    // const [value, setValue] = useState(1);
-    // const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    //     // console.log(newValue);
-    //     if (value) {
-    //         setValue(Number(newValue));
-    //     }
-    // };
+    const [value, setValue] = useState(1);
+    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+        // console.log(newValue);
+        if (value) {
+            setValue(Number(newValue));
+        }
+    };
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -23,8 +23,8 @@ const Layout: React.FC<{}> = ({ children }) => {
                 </Link>
               })} */}
             <Tabs
-                // value={value}
-                // onChange={handleChange}
+                value={value}
+                onChange={handleChange}
                 textColor="primary"
                 indicatorColor="secondary"
                 aria-label="secondary tabs example"

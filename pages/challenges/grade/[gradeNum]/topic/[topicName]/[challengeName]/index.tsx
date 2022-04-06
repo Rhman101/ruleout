@@ -24,7 +24,7 @@ const Challenge: NextPage = () => {
             setLoaded(true);
         }
     }, [router.isReady, router.query]);
-
+0
     return <Layout>
         { loaded && <ChallengeUI settings={challenge.settings} generatorName={generatorName} args={args} ></ChallengeUI>}
     </Layout>
