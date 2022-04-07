@@ -94,7 +94,7 @@ const Grade: NextPage = () => {
                   {/* </div> */}
                   </Link>
                 </Item>
-              }c
+              }
 
               {/* Render all topics. */}
               <br></br>
