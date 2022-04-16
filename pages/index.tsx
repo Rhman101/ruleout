@@ -35,25 +35,30 @@ const Home: NextPage = () => {
   const infoBoxes = [{
     title: 'How it works',
     text: '',
-    icon: faSquareRootVariable
+    icon: faSquareRootVariable,
+    href: '/how'
   }, {
     title: 'Why this way?',
     text: 'Some pedagogical thoughts.',
-    icon: faCircleQuestion
+    icon: faCircleQuestion,
+    href: '/'
   }, {
     title: 'By Ruan Huysen',
     text: 'Click for more info',
-    icon: faUserPen
+    icon: faUserPen,
+    href: '/bio'
   }]
 
   const secondInfoBoxes = [{
     title: 'Want to support me?',
     subtitle: '... or report a bug?',
-    icon: faAt
+    icon: faAt,
+    href: '/support'
   }, {
     title: 'Tech stack and code.',
     subtitle: 'Click for github link!',
-    icon: faLaptopCode
+    icon: faLaptopCode,
+    href: '/stack'
   }]
 
   const [key, setKey] = useState('Grade 12');
@@ -113,7 +118,6 @@ const Home: NextPage = () => {
             </Item>
           </Grid>
 
-
           <Grid item xs={12} sm={5.5} md={5}>
             <Item elevation={3}>
               <Text variant='h4'>Try a challenge!</Text>
@@ -146,13 +150,12 @@ const Home: NextPage = () => {
         <Grid container spacing={4}>
           <Grid item sm={0.75} md={1.5}></Grid>
           {infoBoxes.map((elem, id) => <Grid item key={id} xs={12} sm={3.5} md={3}>
-            <Item onClick={() => id == 2 && setDisplayModal(true)}>
-
+            <Link href={elem.href} passHref><Item onClick={() => id == 2 && setDisplayModal(true)}>
               <FAI icon={elem.icon} size="4x" ></FAI>
               <Text variant="h5">{elem.title}</Text>
               <Text variant='subtitle1'>{elem.text}</Text>
-
             </Item>
+            </Link>
           </Grid>
           )}
           <Grid item sm={0.75} md={1.5}></Grid>
@@ -163,11 +166,13 @@ const Home: NextPage = () => {
         {displayModal && <WelcomeModal handleClose={() => setDisplayModal(false)}></WelcomeModal>}
         <Grid container spacing={4}>
           {secondInfoBoxes.map((elem, indx) => <Grid xs={12} md={6} item key={indx}>
-            <Item>
-              <FAI icon={elem.icon} size="4x"></FAI>
-              <Text variant="h5">{elem.title}</Text>
-              <Text variant='subtitle1'>{elem.subtitle}</Text>
-            </Item>
+            <Link href={elem.href} passHref>
+              <Item>
+                <FAI icon={elem.icon} size="4x"></FAI>
+                <Text variant="h5">{elem.title}</Text>
+                <Text variant='subtitle1'>{elem.subtitle}</Text>
+              </Item>
+            </Link>
           </Grid>
           )}
         </Grid>

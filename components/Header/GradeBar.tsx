@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 import gradeTopicChallenges from '../../constants/gradeTopicChallenges';
 import Link from 'next/link';
 
-const Layout: React.FC<{}> = ({ children }) => {
+const Layout: React.FC<{}> = () => {
     const [value, setValue] = useState(1);
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         // console.log(newValue);
