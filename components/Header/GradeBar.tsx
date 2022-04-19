@@ -5,6 +5,7 @@ import { useState } from "react";
 import { styled } from '@mui/material/styles';
 import gradeTopicChallenges from '../../constants/gradeTopicChallenges';
 import Link from 'next/link';
+import Grid from '@mui/material/Grid';
 
 const Layout: React.FC<{}> = () => {
     const [value, setValue] = useState(1);
@@ -16,7 +17,8 @@ const Layout: React.FC<{}> = () => {
     };
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Grid item sm={12}>
+        <Box sx={{ width: '100%', flexGrow: 1 }}>
             {/* {gradeTopicChallenges.map((grade, gradeIndex) => {
                 return <Link key={gradeIndex} href={`/challenges/grade/${Number(gradeIndex) + 1}`} passHref>
                   <NavDropdown.Item>{grade.name}</NavDropdown.Item>
@@ -43,6 +45,7 @@ const Layout: React.FC<{}> = () => {
             <Tab value="three" label="Item Three" /> */}
             </Tabs>
         </Box>
+        </Grid>
     );
 
 };

@@ -184,8 +184,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             secondsStageTwo: 25,
                             secondsStageThree: 18,
                             questionsStageThree: 40,
-                            inRowCorrectStageOne: 8,
-                            inRowCorrectStageTwo: 11,
+                            inRowCorrectStageOne: 6,
+                            inRowCorrectStageTwo: 8,
                             instructions: 'Where a fraction is the answer, leave the answer as an improper fraction.'
                         }
                     },

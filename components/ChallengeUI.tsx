@@ -11,6 +11,8 @@ import Result from "./Result";
 import { QuestionGenerator } from './../constants/questionGenerator/questionGeneratorInterface';
 import { Button } from "react-bootstrap";
 import WelcomeModal from "./HomePage/WelcomeModal";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 
 interface SettingProps {
     generatorName: string,
@@ -171,30 +173,53 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
     }
 
     return <>
-        {!completed && <div className={styles.mainDiv}>
-            {props.settings.instructions.length > 0 && <p>FYI: {props.settings.instructions}</p>}
-            {useHistory && <ProgressBar history={history}></ProgressBar>}
-            {!useHistory && <Score correct={correct} attempted={attempted} questions={props.settings.questionsStageThree}></Score>}
-            <LevelIndicator level={level}></LevelIndicator>
-            {level !== 1 && <Timer question={question.question} timeOut={() => submitAnswer()} seconds={level === 2 ? Number(props.settings.secondsStageTwo) : Number(props.settings.secondsStageThree)}></Timer>}
-            <Question question={question.question}></Question>
-            <Answer
-                highlightWrong={highlightWrong}
-                submitAnswer={(answer: string) => submitAnswer(answer)}
-            ></Answer>
-            <Button onClick={() => router.push(`/challenges/grade/${Number(router.query.gradeNum) + 1}`)}>Pick another challenge</Button>
-            {props.settings.instructions && <p><span style={{ fontWeight: 'bolder' }}>FYI: </span>{props.settings.instructions}</p>}
-        </div>} 
-        {completed &&
-            <div className={styles.mainDiv}>
-                <Result
-                    didWin={didWin}
-                    restart={restart}
-                    correct={correct}
-                    attempted={attempted}
-                ></Result>
-            </div>}
-        {displayModal && <WelcomeModal handleClose={() => {}}></WelcomeModal>}
+        <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={4}>
+                <Grid item xs={0} sm={2}></Grid>
+                <Grid item xs={12} sm={8}>
+                    <Grid container spacing={4}>
+
+                        {/* Content on the left. */}
+                        <Grid item xs={12} sm={6}>
+                            <LevelIndicator level={level}></LevelIndicator>
+                        </Grid>
+
+                        {/* Content on the right. */}
+                        <Grid item xs={12} sm={6}>
+                            {useHistory && <ProgressBar history={history}></ProgressBar>}
+                        </Grid>
+
+                        {/* Question and Answer Content */}
+                        <Grid item xs={12}>
+                            {!completed && <>
+                                {props.settings.instructions.length > 0 && <p>FYI: {props.settings.instructions}</p>}
+                                {!useHistory && <Score correct={correct} attempted={attempted} questions={props.settings.questionsStageThree}></Score>}
+                                {level !== 1 && <Timer question={question.question} timeOut={() => submitAnswer()} seconds={level === 2 ? Number(props.settings.secondsStageTwo) : Number(props.settings.secondsStageThree)}></Timer>}
+                                <Question question={question.question}></Question>
+                                <Answer
+                                    highlightWrong={highlightWrong}
+                                    submitAnswer={(answer: string) => submitAnswer(answer)}
+                                ></Answer>
+                                <Button onClick={() => router.push(`/challenges/grade/${Number(router.query.gradeNum) + 1}`)}>Pick another challenge</Button>
+                                {props.settings.instructions && <p><span style={{ fontWeight: 'bolder' }}>FYI: </span>{props.settings.instructions}</p>}
+                            </>}
+                            {completed &&
+                                <>
+                                    <Result
+                                        didWin={didWin}
+                                        restart={restart}
+                                        correct={correct}
+                                        attempted={attempted}
+                                    ></Result>
+                                </>}
+                            {displayModal && <WelcomeModal handleClose={() => { }}></WelcomeModal>}
+                        </Grid>
+                    </Grid>
+                    {/* </Grid> */}
+                </Grid>
+                <Grid item xs={0} sm={2}></Grid>
+            </Grid>
+        </Box>
     </>
 
 }
