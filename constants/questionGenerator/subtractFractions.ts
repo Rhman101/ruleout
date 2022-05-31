@@ -6,10 +6,10 @@ interface arg {
 }
 
 const subtractFraction = (arg: arg): QuestionGenerator => {
-    const w = randomNumber(1, 12);
-    const x = randomNumber(1, 12);
-    const y = randomNumber(1, 12);
-    const z = randomNumber(1, 12);
+    const w = randomNumber(1, 10);
+    const x = randomNumber(w + 1, 12);
+    const y = randomNumber(1, 10);
+    const z = randomNumber(y + 1, 12);
     let a, b, c, d;
 
     if (w * z / x * z > y * x / x * z) {

@@ -27,12 +27,13 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
     // },
     {
         name: "Grade 7",
+        gradeDigit: '7',
         topics: [
             {
                 topicName: "Integers",
                 challenges: [
                     {
-                        name: "Addition Challenge",
+                        name: "Addition",
                         generatorName: 'addIntegers',
                         args: {
                             grade: 7
@@ -47,7 +48,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         }
                     },
                     {
-                        name: "Subtraction Challenge",
+                        name: "Subtraction",
                         generatorName: 'subtractIntegers',
                         args: {
                             grade: 7
@@ -62,7 +63,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         }
                     },
                     {
-                        name: "Multiplication Challenge",
+                        name: "Multiplication",
                         generatorName: "multiplyIntegers",
                         args: {
                             integerInputs: [2, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 11, 11, 12, 12, 12],
@@ -77,7 +78,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         }
                     }, 
                     {
-                        name: "Basic Integers Challenge",
+                        name: "Basic Integers",
                         generatorName: "addBasicIntegers",
                         args: {
                             range: [-12, 12],
@@ -122,6 +123,30 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             inRowCorrectStageTwo: 10,
                             instructions: 'To type the mixed number answer, type the number, followed by a space, followed by a fraction delineated with the / key'
                         }
+                    }, {
+                        name: "Multiply Simple Fractions",
+                        generatorName: 'multiplyFractions',
+                        args: {},
+                        settings: {
+                            secondsStageTwo: 60,
+                            secondsStageThree: 50,
+                            questionsStageThree: 30,
+                            inRowCorrectStageOne: 7,
+                            inRowCorrectStageTwo: 10,
+                            instructions: 'To type the mixed number answer, type the number, followed by a space, followed by a fraction delineated with the / key'
+                        }
+                    }, {
+                        name: "Divide Simple Fractions",
+                        generatorName: 'divideFractions',
+                        args: {},
+                        settings: {
+                            secondsStageTwo: 60,
+                            secondsStageThree: 50,
+                            questionsStageThree: 30,
+                            inRowCorrectStageOne: 7,
+                            inRowCorrectStageTwo: 10,
+                            instructions: 'To type the mixed number answer, type the number, followed by a space, followed by a fraction delineated with the / key'
+                        }
                     }
                 ]
             }
@@ -129,12 +154,13 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
     },
     {
         name: "Grade 8",
+        gradeDigit: '8',
         topics: [
             {
                 topicName: "Integers",
                 challenges: [
                     {
-                        name: "Basic Integers Challenge",
+                        name: "Basic Integers",
                         generatorName: "addBasicIntegers",
                         args: {
                             range: [-15, 15],
@@ -150,7 +176,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         }
                     },
                     {
-                        name: "Multiply Integers Challenge",
+                        name: "Multiply Integers",
                         generatorName: "multiplyIntegers",
                         args: {
                             integerInputs: [
@@ -208,6 +234,20 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             inRowCorrectStageTwo: 8,
                             instructions: ''
                         }
+                    }, {
+                        name: "Factorize Quadratics",
+                        generatorName: 'factorizeQuadratics',
+                        args: {
+                            leadingCoefficient: false
+                        },
+                        settings: {
+                            secondsStageTwo: 360,
+                            secondsStageThree: 240,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 7,
+                            instructions: 'PS: If the answer is a binomial squared, type the binomail twice. Type (x+1)(x+1) instead of (x+1)^2.'
+                        }
                     }
                 ]
             }
@@ -215,12 +255,13 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
     },
     {
         name: "Grade 9",
+        gradeDigit: '9',
         topics: [
             {
                 topicName: "Integers",
                 challenges: [
                     {
-                        name: "Basic Integers Challenge",
+                        name: "Basic Integers",
                         generatorName: "addBasicIntegers",
                         args: {
                             range: [-15, 15],
@@ -236,7 +277,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         }
                     },
                     {
-                        name: "Multiply Integers Challenge",
+                        name: "Multiply Integers",
                         generatorName: "multiplyIntegers",
                         args: {
                             integerInputs: [
@@ -272,6 +313,20 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             inRowCorrectStageTwo: 8,
                             instructions: ''
                         }
+                    }, {
+                        name: "Factorize Quadratics",
+                        generatorName: 'factorizeQuadratics',
+                        args: {
+                            leadingCoefficient: true
+                        },
+                        settings: {
+                            secondsStageTwo: 300,
+                            secondsStageThree: 270,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 7,
+                            instructions: 'PS: If the answer is a binomial squared, type the binomail twice. Type (x+1)(x+1) instead of (x+1)^2.'
+                        }
                     }
                 ]
             },
@@ -300,6 +355,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
         ]
     }, {
         name: "Grade 12",
+        gradeDigit: '12',
         topics: [
             {
                 topicName: "Calculus",

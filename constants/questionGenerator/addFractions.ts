@@ -6,10 +6,10 @@ interface arg {
 }
 
 const addFractions = (arg: arg): QuestionGenerator => {
-    const a = randomNumber(1, 12);
-    const b = randomNumber(1, 12);
-    const c = randomNumber(1, 12);
-    const d = randomNumber(1, 12);
+    const a = randomNumber(1, 10);
+    const b = randomNumber(a + 1, 12);
+    const c = randomNumber(1, 10);
+    const d = randomNumber(c + 1, 12);
 
     let numerator = a * d + c * b;
     let denominator = b * d;

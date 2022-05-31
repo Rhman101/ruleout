@@ -6,7 +6,8 @@ export interface Args {
     numberIntegers?: number,
     additionRange?: number[],
     multiplicationRange?: number[],
-    divisionRange?: number[]
+    divisionRange?: number[],
+    leadingCoefficient?: boolean
 }
 
 export interface Settings {
@@ -27,6 +28,7 @@ export interface Challenge {
 
 export interface GradeTopicChallenges {
     name: string,
+    gradeDigit: string,
     topics: Topics[]
 }
 
@@ -47,5 +49,4 @@ export const initialChallenge: Challenge =  {
         inRowCorrectStageTwo: -1,
         instructions: ''
     }
-
 }

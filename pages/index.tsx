@@ -6,7 +6,6 @@ import Image from 'next/image'
 import Layout from '../components/Layout';
 import gradeTopicChallenges from '../constants/gradeTopicChallenges'
 
-// Playground:
 import React, { useContext, useEffect, useState } from "react";
 import { useAppContext } from '../context/state'
 import Link from 'next/link'
@@ -17,14 +16,14 @@ import { randomNumber } from '../constants/library'
 import { Challenge, initialChallenge } from '../constants/gradeTopicChallengesInterface'
 import WelcomeModal from '../components/HomePage/WelcomeModal'
 import Button from '@mui/material/Button';
-// import { Button, Container, Row, Col, Tabs, Tab } from 'react-bootstrap';
-import { Row, Col, Tabs, Tab } from 'react-bootstrap';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
-// import MiniChallenge from '../components/HomePage/MiniChallenge'
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import MiniChallengeTabs from './../components/MiniChallengeTabs';
 
 const MiniChallenge = dynamic(
   () => import('../components/HomePage/MiniChallenge'),
@@ -79,7 +78,6 @@ const Home: NextPage = () => {
   const [displayModal, setDisplayModal] = useState(false);
 
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -102,44 +100,25 @@ const Home: NextPage = () => {
 
 
         <Grid container spacing={4}>
+
           <Grid item xs={0} sm={.5} md={1}></Grid>
           <Grid item xs={12} sm={5.5} md={5}>
-            <Item>
+            <Item sx={{
+              height: '550px',
+              paddingTop: '120px'
+            }} >
               <Text variant='h4' gutterBottom>Interactive Math Challenges</Text>
               {['South Africa-focused', 'CAPS-aligned', 'Skill-building', 'Results-oriented'].map((elem, indx) =>
                 <Text variant='h6'
                   key={indx}>{elem}</Text>)}
-              {/* <Text variant='h4'>Available Grades:</Text>
-              {gradeTopicChallenges.map((grade, gradeIndx) =>
-                <Link href={`/challenges/grade/${gradeIndx + 1}`} passHref key={gradeIndx}>
-                  <div style={{ margin: '5px' }}><Button variant='contained'>{grade.name}</Button></div>
-                </Link>
-              )} */}
             </Item>
           </Grid>
 
           <Grid item xs={12} sm={5.5} md={5}>
-            <Item elevation={3}>
-              <Text variant='h4'>Try a challenge!</Text>
-              <Tabs
-                id="controlled-tab-example"
-                activeKey={key}
-                onSelect={(eventKey) => {
-                  if (eventKey !== null) {
-                    setKey(eventKey);
-                    getChallengeData(eventKey);
-                  }
-                }}
-                className='mb-3 global_tabs'
-              >
-                <Tab eventKey="Grade 7" title="Grade 7">
-                </Tab>
-                <Tab eventKey="Grade 9" title="Grade 9">
-                </Tab>
-                <Tab eventKey="Grade 12" title="Grade 12">
-                </Tab>
-              </Tabs>
-              {challenge.name.length > 1 && <MiniChallenge gradeString={key} challenge={challenge}></MiniChallenge>}
+            <Item elevation={3} sx={{ height: '550px' }}>
+              <Text variant='h4'>Try a random challenge!</Text>
+              <MiniChallengeTabs>
+              </MiniChallengeTabs>
             </Item>
           </Grid>
           <Grid item xs={0} sm={.5} md={1}></Grid>
@@ -150,11 +129,12 @@ const Home: NextPage = () => {
         <Grid container spacing={4}>
           <Grid item sm={0.75} md={1.5}></Grid>
           {infoBoxes.map((elem, id) => <Grid item key={id} xs={12} sm={3.5} md={3}>
-            <Link href={elem.href} passHref><Item onClick={() => id == 2 && setDisplayModal(true)}>
-              <FAI icon={elem.icon} size="4x" ></FAI>
-              <Text variant="h5">{elem.title}</Text>
-              <Text variant='subtitle1'>{elem.text}</Text>
-            </Item>
+            <Link href={elem.href} passHref>
+              <Item sx={{ height: '190px' }} onClick={() => id == 2 && setDisplayModal(true)}>
+                <FAI icon={elem.icon} size="4x" ></FAI>
+                <Text variant="h5">{elem.title}</Text>
+                <Text variant='subtitle1'>{elem.text}</Text>
+              </Item>
             </Link>
           </Grid>
           )}
@@ -165,7 +145,8 @@ const Home: NextPage = () => {
 
         {displayModal && <WelcomeModal handleClose={() => setDisplayModal(false)}></WelcomeModal>}
         <Grid container spacing={4}>
-          {secondInfoBoxes.map((elem, indx) => <Grid xs={12} md={6} item key={indx}>
+          <Grid item sm={1} ></Grid>
+          {secondInfoBoxes.map((elem, indx) => <Grid xs={12} sm={5} item key={indx}>
             <Link href={elem.href} passHref>
               <Item>
                 <FAI icon={elem.icon} size="4x"></FAI>
@@ -175,6 +156,7 @@ const Home: NextPage = () => {
             </Link>
           </Grid>
           )}
+          <Grid item sm={1}></Grid>
         </Grid>
         <br></br>
 
@@ -185,3 +167,25 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+/* <Tabs
+value={key}
+onChange={(eventKey) => {
+if (eventKey !== null) {
+// This is broken. Fix it! 
+setKey(eventKey);
+getChallengeData(eventKey);
+}
+}}
+textColor="primary"
+indicatorColor="secondary"
+aria-label="secondary tabs example"
+className='mb-3 global_tabs'
+>
+<Tab eventKey="Grade 7" title="Grade 7">
+</Tab>
+<Tab eventKey="Grade 9" title="Grade 9">
+</Tab>
+<Tab eventKey="Grade 12" title="Grade 12">
+</Tab>
+</Tabs> */

@@ -1,7 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Box from '@mui/material/Box';
+import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress';
+import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { Question } from '../constants/questionGenerator/questionGeneratorInterface';
 import styles from './Timer.module.css';
+
+function LinearProgressWithLabel(props: LinearProgressProps & { value: number, display: number }) {
+    return (
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box sx={{ width: '100%', mr: 1 }}>
+                <LinearProgress sx={{ height: '10px' }} variant="determinate" value={props.value} />
+            </Box>
+            <Box sx={{ minWidth: 35 }}>
+                <Typography variant="body2" color="text.secondary">{props.display}</Typography>
+            </Box>
+        </Box>
+    );
+}
 
 interface Props {
     seconds: number,
@@ -36,9 +52,20 @@ const Timer: React.FC<Props> = (props) => {
         if (timer) { clearTimeout(timer); }
         setSecondsLeft(props.seconds);
     }, [props.question]);
-    return <div>
-        <p className={styles.TimerText}>{secondsLeft}</p>
-    </div>
+
+    useEffect(() => {
+        return () => {
+            if (timer) {
+                clearTimeout(timer);
+            }
+        }
+    })
+    
+    return <>
+        <Box sx={{ width: '20%' }}>
+            <LinearProgressWithLabel value={secondsLeft / props.seconds * 100} display={secondsLeft} />
+        </Box>
+    </>
 
 }
 

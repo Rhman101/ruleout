@@ -3,7 +3,7 @@ import { Args, Challenge, Settings } from "../../constants/gradeTopicChallengesI
 import ProgressBar from '../../components/ProgressBar';
 import LevelIndicator from '../../components/LevelIndicator';
 import dynamic from "next/dynamic";
-import styles from './MiniChallengeUI.module.css';
+import styles from './MiniChallenge.module.css';
 import Score from "./../Score";
 import Timer from "./../Timer";
 import { useRouter } from 'next/router';
@@ -30,7 +30,7 @@ const Question = dynamic(
     { ssr: false }
 )
 
-const MiniChallengeUI: React.FC<SettingProps> = (props: SettingProps) => {
+const MiniChallenge: React.FC<SettingProps> = (props: SettingProps) => {
     const grade = props.gradeString;
     const challenge = props.challenge;
 
@@ -106,4 +106,4 @@ const MiniChallengeUI: React.FC<SettingProps> = (props: SettingProps) => {
 
 }
 
-export default MiniChallengeUI;
+export default MiniChallenge;

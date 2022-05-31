@@ -15,11 +15,18 @@ import { teal } from '@mui/material/colors';
 
 
 const theme = createTheme({
-  // palette: {
-  //   primary: {
-  //     main: teal[500]
-  //   }
-  // }
+  palette: {
+    mode: 'light',
+    primary: {
+      main: 'rgba(59,117,162,0.93)',
+    },
+    secondary: {
+      main: '#67cbbd',
+    },
+    background: {
+      paper: 'rgba(241,241,245,0.45)',
+    },
+  },
 })
 
 function MyApp({ Component, pageProps }: AppProps) {

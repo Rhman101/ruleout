@@ -3,13 +3,14 @@ import CheckCircleTwoToneIcon from '@mui/icons-material/CheckCircleTwoTone';
 import CancelTwoToneIcon from '@mui/icons-material/CancelTwoTone';
 import CircleTwoToneIcon from '@mui/icons-material/CircleTwoTone';
 import CircleIcon from '@mui/icons-material/Circle';
+import Typography from '@mui/material/Typography';
 interface Props {
     history: number[]
 }
 
 const ProgressBar: React.FC<Props> = ({history}) => {
     return <div>
-        {/* <p className={styles.ProgressBar}>Progress Bar {JSON.stringify(history)}</p> */}
+        <Typography variant='overline' display='block'>{`Challenge: Get ${history.length} questions correct in a row!`}</Typography>
         {history.map((check, checkId) => {
             if (check === 1) {
                 return <CheckCircleTwoToneIcon key={checkId} color='success'></CheckCircleTwoToneIcon>
@@ -20,7 +21,6 @@ const ProgressBar: React.FC<Props> = ({history}) => {
             }
         })}
     </div>
-
 }
 
 export default ProgressBar;

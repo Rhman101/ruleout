@@ -31,7 +31,7 @@ const FactorizeDiffSq = ({ withInteger }: arg): QuestionGenerator => {
     return {
         question: [{
             latex: false,
-            text: `Factorize`
+            text: `Factorize `
         }, {
             latex: true,
             text: `${a * b * b > 1 ? a * b * b : ''}x^2-${a * c * c}`

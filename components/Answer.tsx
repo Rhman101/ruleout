@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { addStyles, EditableMathField } from 'react-mathquill'
 import style from './Answer.module.css';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import Typography from "@mui/material/Typography";
+
 
 addStyles();
 
@@ -29,7 +32,7 @@ const Question: React.FC<Props> = (props) => {
         setAnswerInput('');
     }
 
-    return <div>
+    return <>
         <EditableMathField
             className={style.questionInput}
             id={"mathField"}
@@ -43,14 +46,13 @@ const Question: React.FC<Props> = (props) => {
                     submitAnswer();
                 }
             }}
-        // mathquillDidMount={() => console.log('mounted')}
         />
         <br />
-        <Button onClick={() => submitAnswer()} variant={props.highlightWrong ? 'danger' : 'primary'}
-        >Submit</Button>
-        {!pressedEnter && <p>{"PS: Press \"enter\" to submit your answer!"}</p>}
-    </div>
-
+        <Button variant="contained" color="secondary" endIcon={<SendIcon />} onClick={() => submitAnswer()} >
+            Submit
+        </Button>
+        {!pressedEnter && <Typography variant="body1" component="div">{"PS: Press \"enter\" to submit your answer!"}</Typography>}
+    </>
 }
 
 export default Question;
