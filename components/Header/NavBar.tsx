@@ -10,6 +10,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Image from 'next/image'
+import logoImage from '../../public/logo.webp';
 
 
 import Link from 'next/link';
@@ -31,7 +33,7 @@ const pages = [{
     href: '/support'
 }]
 
-const logo = 'SA Math Challenge';
+const logo = 'SA Math+ Adept';
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -46,103 +48,114 @@ const ResponsiveAppBar = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={0}>
-            <AppBar position="fixed">
-                <Container maxWidth="xl">
-                    <Toolbar disableGutters>
+            <Grid container spacing={0}>
+                <AppBar position="fixed">
+                    <Container maxWidth="xl">
+                        <Toolbar disableGutters>
+                            {/* Logo to display on sm and bigger. */}
+                            <Image
+                                src={logoImage}
+                                alt="Logo"
+                                // width={75}
+                                // height={45}
+                                priority
+                                width={85}
+                                height={56.8}
+                                placeholder='blur'
+                            />
 
-                        {/* Logo to display on sm and bigger. */}
-                        <Link href='/' passHref>
-                            <Typography
-                                variant="h5"
-                                noWrap
-                                component="div"
-                                sx={{ cursor: 'pointer', mr: 2, display: { xs: 'none', sm: 'flex' } }}
-                            >
-                                {logo}
-                            </Typography>
-                        </Link>
+                            <Link href='/' passHref>
+                                <Typography
+                                    variant="h5"
+                                    noWrap
+                                    component="div"
+                                    sx={{ paddingLeft: '12px', cursor: 'pointer', mr: 2, display: { xs: 'none', sm: 'flex' } }}
+                                >
+                                    {logo}
+                                </Typography>
+                            </Link>
 
-                        {/* Box that displays when three lines are clicked on xs only. */}
-                        {/* Box contains menu items.  */}
 
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleOpenNavMenu}
-                                color="inherit"
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorElNav}
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'left',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
-                                open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
-                                sx={{
-                                    display: { xs: 'block', md: 'none' },
-                                }}
-                            >
-                                <Link href='/' passHref>
-                                    <MenuItem onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">Home</Typography>
-                                    </MenuItem>
-                                </Link>
-                                {pages.map((page) => (
-                                    <Link key={page.name} href={page.href} passHref>
+                            {/* Box that displays when three lines are clicked on xs only. */}
+                            {/* Box contains menu items.  */}
+
+                            <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
+                                <IconButton
+                                    size="large"
+                                    aria-label="account of current user"
+                                    aria-controls="menu-appbar"
+                                    aria-haspopup="true"
+                                    onClick={handleOpenNavMenu}
+                                    color="inherit"
+                                >
+                                    <MenuIcon />
+                                </IconButton>
+                                <Menu
+                                    id="menu-appbar"
+                                    anchorEl={anchorElNav}
+                                    anchorOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'left',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'left',
+                                    }}
+                                    open={Boolean(anchorElNav)}
+                                    onClose={handleCloseNavMenu}
+                                    sx={{
+                                        display: { xs: 'block', md: 'none' },
+                                    }}
+                                >
+                                    <Link href='/' passHref>
                                         <MenuItem onClick={handleCloseNavMenu}>
-                                            <Typography textAlign="center">{page.name}</Typography>
+                                            <Typography textAlign="center">Home</Typography>
                                         </MenuItem>
                                     </Link>
+                                    {pages.map((page) => (
+                                        <Link key={page.name} href={page.href} passHref>
+                                            <MenuItem onClick={handleCloseNavMenu}>
+                                                <Typography textAlign="center">{page.name}</Typography>
+                                            </MenuItem>
+                                        </Link>
+                                    ))}
+                                </Menu>
+                            </Box>
+
+                            {/* Logo to display on xs only. */}
+                            <Link href='/' passHref>
+                                <Typography
+                                    variant="h5"
+                                    noWrap
+                                    component="div"
+                                    sx={{ cursor: 'pointer', flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}
+                                >
+                                    {logo}
+                                </Typography>
+                            </Link>
+
+                            {/* This box is to keep the xs logo in the middle and it's a placeholder for a future menu. */}
+                            <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}></Box>
+                            <Box sx={{ flexGrow: 1 }} />
+                            {/* Box to display on sm and bigger. */}
+                            {/* Box displays menu items in header. */}
+                            <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+                                {pages.map((page) => (
+                                    <Link href={page.href} passHref key={page.name}>
+                                        <Button
+                                            sx={{ my: 2, color: 'white', display: 'block' }}
+                                        >
+                                            {page.name}
+                                        </Button>
+                                    </Link>
                                 ))}
-                            </Menu>
-                        </Box>
-
-                        {/* Logo to display on xs only. */}
-                        <Link href='/' passHref>
-                            <Typography
-                                variant="h5"
-                                noWrap
-                                component="div"
-                                sx={{ cursor: 'pointer', flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}
-                            >
-                                {logo}
-                            </Typography>
-                        </Link>
-
-                        {/* This box is to keep the xs logo in the middle and it's a placeholder for a future menu. */}
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}></Box>
-
-                        {/* Box to display on sm and bigger. */}
-                        {/* Box displays menu items in header. */}
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
-                            {pages.map((page) => (
-                                <Link href={page.href} passHref key={page.name}>
-                                    <Button
-                                        sx={{ my: 2, color: 'white', display: 'block' }}
-                                    >
-                                        {page.name}
-                                    </Button>
-                                </Link>
-                            ))}
-                        </Box>
-                    </Toolbar>
-                    <GradeBar></GradeBar>
-                </Container>
-            </AppBar>
-        </Grid>
+                            </Box>
+                        </Toolbar>
+                        <GradeBar></GradeBar>
+                    </Container>
+                </AppBar>
+            </Grid>
         </Box>
     );
 };

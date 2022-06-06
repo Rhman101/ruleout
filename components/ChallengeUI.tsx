@@ -42,11 +42,9 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
         return { question: [{ latex: false, text: '' }], answer: [''] }
     })
     const [question, setQuestion] = useState<QuestionGenerator>({ question: [{ latex: false, text: '' }], answer: ['_'] });
-    // const [level, setLevel] = useState(1);
-    // const [useHistory, setUseHistory] = useState(true);
-    // For level 3 testing:
-    const [level, setLevel] = useState(3);
-    const [useHistory, setUseHistory] = useState(false);
+    
+    const [level, setLevel] = useState(1);
+    const [useHistory, setUseHistory] = useState(true);
     const [history, setHistory] = useState<number[]>([]);
     const [firstAttempt, setFirstAttempt] = useState(true);
     const [correct, setCorrect] = useState(0);
@@ -127,7 +125,8 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
     }
 
     const submitAnswer = (answer: string = '') => {
-        console.log('question answer', {question, answer});
+        // Great for testing and developing questions. 
+        // console.log('question answer', {question, answer});
         if (question.answer.findIndex((elem) => elem === answer) !== -1 || answer === 'k') {
             if (firstAttempt) {
                 if (level === 1 || level === 2) {

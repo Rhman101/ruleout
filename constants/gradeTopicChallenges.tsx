@@ -76,7 +76,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             inRowCorrectStageTwo: 12,
                             instructions: ''
                         }
-                    }, 
+                    },
                     {
                         name: "Basic Integers",
                         generatorName: "addBasicIntegers",
@@ -214,7 +214,21 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             inRowCorrectStageTwo: 8,
                             instructions: 'Where a fraction is the answer, leave the answer as an improper fraction.'
                         }
-                    },
+                    }, {
+                        name: "Multi-step Equations",
+                        generatorName: 'multiStepEquations',
+                        args: {
+                            range: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                        },
+                        settings: {
+                            secondsStageTwo: 25,
+                            secondsStageThree: 18,
+                            questionsStageThree: 40,
+                            inRowCorrectStageOne: 6,
+                            inRowCorrectStageTwo: 8,
+                            instructions: 'Where a fraction is the answer, leave the answer as an improper fraction.'
+                        }
+                    }
                 ]
             },
             {
@@ -349,7 +363,21 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             inRowCorrectStageTwo: 13,
                             instructions: 'If a fraction is the answer, leave it as an improper fraction'
                         }
-                    },
+                    }, {
+                        name: "Multi-step Equations",
+                        generatorName: 'multiStepEquations',
+                        args: {
+                            range: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                        },
+                        settings: {
+                            secondsStageTwo: 25,
+                            secondsStageThree: 18,
+                            questionsStageThree: 40,
+                            inRowCorrectStageOne: 6,
+                            inRowCorrectStageTwo: 8,
+                            instructions: 'Where a fraction is the answer, leave the answer as an improper fraction.'
+                        }
+                    }
                 ]
             }
         ]
@@ -363,6 +391,20 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                     {
                         name: "Basic Power rule",
                         generatorName: 'basicPowerRule',
+                        args: {
+
+                        },
+                        settings: {
+                            secondsStageTwo: 60,
+                            secondsStageThree: 50,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 8,
+                            instructions: ''
+                        }
+                    }, {
+                        name: "Gradient from Derivative",
+                        generatorName: 'mFromDerivative',
                         args: {
 
                         },

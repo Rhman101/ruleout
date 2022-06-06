@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import { useRouter } from 'next/router';
 
 const Layout: React.FC<{}> = () => {
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState(0);
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         if (value) {
             setValue(Number(newValue));

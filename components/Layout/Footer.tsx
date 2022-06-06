@@ -6,15 +6,17 @@ import Grid from "@mui/material/Grid";
 const Foooter: React.FC<{}> = () => {
 
     return <footer style={{
-        position: 'fixed',
+        position: 'relative',
         bottom: 0,
         left: 0,
         width: '100%'
     }}>
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={4}>
-                <Grid item xs={6}>content</Grid>
-                <Grid item xs={6}>more content</Grid>
+                {/* Left footer content here. */}
+                <Grid item xs={6}></Grid>
+                {/* Right footer content here. */}
+                <Grid item xs={6}></Grid>
             </Grid>
         </Box>
     </footer>
