@@ -12,6 +12,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 import { teal } from '@mui/material/colors';
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 
 const theme = createTheme({
