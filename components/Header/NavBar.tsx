@@ -33,7 +33,7 @@ const pages = [{
     href: '/support'
 }]
 
-const logo = 'SA Math+ Adept';
+const logo = 'RuleOUT';
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);

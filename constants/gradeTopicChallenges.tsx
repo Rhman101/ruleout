@@ -249,17 +249,31 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             instructions: ''
                         }
                     }, {
-                        name: "Factorize Quadratics",
+                        name: "Factorize Quadratics Level 1",
                         generatorName: 'factorizeQuadratics',
                         args: {
                             leadingCoefficient: false
+                        },
+                        settings: {
+                            secondsStageTwo: 180,
+                            secondsStageThree: 120,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
+                            instructions: 'PS: If the answer is a binomial squared, type the binomail twice. Type (x+1)(x+1) instead of (x+1)^2.'
+                        }
+                    }, {
+                        name: "Factorize Quadratics Level 2",
+                        generatorName: 'factorizeQuadratics',
+                        args: {
+                            leadingCoefficient: true
                         },
                         settings: {
                             secondsStageTwo: 360,
                             secondsStageThree: 240,
                             questionsStageThree: 15,
                             inRowCorrectStageOne: 5,
-                            inRowCorrectStageTwo: 7,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'PS: If the answer is a binomial squared, type the binomail twice. Type (x+1)(x+1) instead of (x+1)^2.'
                         }
                     }
@@ -282,11 +296,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             numberIntegers: 4
                         },
                         settings: {
-                            secondsStageTwo: 30,
-                            secondsStageThree: 20,
-                            questionsStageThree: 30,
-                            inRowCorrectStageOne: 7,
-                            inRowCorrectStageTwo: 10,
+                            secondsStageTwo: 15,
+                            secondsStageThree: 12,
+                            questionsStageThree: 20,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: ''
                         }
                     },
@@ -302,9 +316,9 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         settings: {
                             secondsStageTwo: 8,
                             secondsStageThree: 7,
-                            questionsStageThree: 70,
-                            inRowCorrectStageOne: 10,
-                            inRowCorrectStageTwo: 15,
+                            questionsStageThree: 50,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: ''
                         }
                     }
@@ -328,17 +342,31 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             instructions: ''
                         }
                     }, {
-                        name: "Factorize Quadratics",
+                        name: "Factorize Quadratics Level 1",
+                        generatorName: 'factorizeQuadratics',
+                        args: {
+                            leadingCoefficient: false
+                        },
+                        settings: {
+                            secondsStageTwo: 180,
+                            secondsStageThree: 120,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
+                            instructions: 'PS: If the answer is a binomial squared, type the binomail twice. Type (x+1)(x+1) instead of (x+1)^2.'
+                        }
+                    }, {
+                        name: "Factorize Quadratics Level 2",
                         generatorName: 'factorizeQuadratics',
                         args: {
                             leadingCoefficient: true
                         },
                         settings: {
-                            secondsStageTwo: 300,
-                            secondsStageThree: 270,
+                            secondsStageTwo: 360,
+                            secondsStageThree: 240,
                             questionsStageThree: 15,
                             inRowCorrectStageOne: 5,
-                            inRowCorrectStageTwo: 7,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'PS: If the answer is a binomial squared, type the binomail twice. Type (x+1)(x+1) instead of (x+1)^2.'
                         }
                     }
@@ -356,11 +384,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             divisionRange: [-12, 12]
                         },
                         settings: {
-                            secondsStageTwo: 20,
-                            secondsStageThree: 15,
-                            questionsStageThree: 50,
-                            inRowCorrectStageOne: 10,
-                            inRowCorrectStageTwo: 13,
+                            secondsStageTwo: 12,
+                            secondsStageThree: 10,
+                            questionsStageThree: 25,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'If a fraction is the answer, leave it as an improper fraction'
                         }
                     }, {
@@ -370,11 +398,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             range: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                         },
                         settings: {
-                            secondsStageTwo: 25,
-                            secondsStageThree: 18,
-                            questionsStageThree: 40,
-                            inRowCorrectStageOne: 6,
-                            inRowCorrectStageTwo: 8,
+                            secondsStageTwo: 16,
+                            secondsStageThree: 14,
+                            questionsStageThree: 25,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'Where a fraction is the answer, leave the answer as an improper fraction.'
                         }
                     }
