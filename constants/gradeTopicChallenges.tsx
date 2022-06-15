@@ -315,7 +315,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         },
                         settings: {
                             secondsStageTwo: 8,
-                            secondsStageThree: 7,
+                            secondsStageThree: 9,
                             questionsStageThree: 50,
                             inRowCorrectStageOne: 10,
                             inRowCorrectStageTwo: 12,
@@ -334,8 +334,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             withInteger: true
                         },
                         settings: {
-                            secondsStageTwo: 60,
-                            secondsStageThree: 50,
+                            secondsStageTwo: 100,
+                            secondsStageThree: 80,
                             questionsStageThree: 15,
                             inRowCorrectStageOne: 8,
                             inRowCorrectStageTwo: 10,
@@ -348,8 +348,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             leadingCoefficient: false
                         },
                         settings: {
-                            secondsStageTwo: 180,
-                            secondsStageThree: 120,
+                            secondsStageTwo: 360,
+                            secondsStageThree: 280,
                             questionsStageThree: 15,
                             inRowCorrectStageOne: 5,
                             inRowCorrectStageTwo: 6,
@@ -362,8 +362,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             leadingCoefficient: true
                         },
                         settings: {
-                            secondsStageTwo: 360,
-                            secondsStageThree: 240,
+                            secondsStageTwo: 400,
+                            secondsStageThree: 320,
                             questionsStageThree: 15,
                             inRowCorrectStageOne: 5,
                             inRowCorrectStageTwo: 6,
@@ -384,8 +384,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             divisionRange: [-12, 12]
                         },
                         settings: {
-                            secondsStageTwo: 15,
-                            secondsStageThree: 12,
+                            secondsStageTwo: 25,
+                            secondsStageThree: 20,
                             questionsStageThree: 25,
                             inRowCorrectStageOne: 10,
                             inRowCorrectStageTwo: 12,
@@ -398,8 +398,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             range: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                         },
                         settings: {
-                            secondsStageTwo: 24,
-                            secondsStageThree: 20,
+                            secondsStageTwo: 25,
+                            secondsStageThree: 30,
                             questionsStageThree: 25,
                             inRowCorrectStageOne: 6,
                             inRowCorrectStageTwo: 8,
