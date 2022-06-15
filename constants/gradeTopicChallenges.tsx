@@ -337,8 +337,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             secondsStageTwo: 100,
                             secondsStageThree: 80,
                             questionsStageThree: 15,
-                            inRowCorrectStageOne: 8,
-                            inRowCorrectStageTwo: 10,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 5,
                             instructions: ''
                         }
                     }, {
@@ -352,7 +352,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             secondsStageThree: 280,
                             questionsStageThree: 15,
                             inRowCorrectStageOne: 5,
-                            inRowCorrectStageTwo: 6,
+                            inRowCorrectStageTwo: 5,
                             instructions: 'PS: If the answer is a binomial squared, type the binomail twice. Type (x+1)(x+1) instead of (x+1)^2.'
                         }
                     }, {
@@ -366,7 +366,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             secondsStageThree: 320,
                             questionsStageThree: 15,
                             inRowCorrectStageOne: 5,
-                            inRowCorrectStageTwo: 6,
+                            inRowCorrectStageTwo: 5,
                             instructions: 'PS: If the answer is a binomial squared, type the binomail twice. Type (x+1)(x+1) instead of (x+1)^2.'
                         }
                     }
