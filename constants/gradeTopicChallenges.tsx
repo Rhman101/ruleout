@@ -39,8 +39,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             grade: 7
                         },
                         settings: {
-                            secondsStageTwo: 9,
-                            secondsStageThree: 7,
+                            secondsStageTwo: 12,
+                            secondsStageThree: 10,
                             questionsStageThree: 50,
                             inRowCorrectStageOne: 10,
                             inRowCorrectStageTwo: 15,
@@ -54,8 +54,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             grade: 7
                         },
                         settings: {
-                            secondsStageTwo: 9,
-                            secondsStageThree: 7,
+                            secondsStageTwo: 15,
+                            secondsStageThree: 12,
                             questionsStageThree: 50,
                             inRowCorrectStageOne: 10,
                             inRowCorrectStageTwo: 15,
@@ -69,8 +69,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             integerInputs: [2, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 11, 11, 12, 12, 12],
                         },
                         settings: {
-                            secondsStageTwo: 9,
-                            secondsStageThree: 7,
+                            secondsStageTwo: 15,
+                            secondsStageThree: 12,
                             questionsStageThree: 50,
                             inRowCorrectStageOne: 9,
                             inRowCorrectStageTwo: 12,
@@ -82,7 +82,7 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         generatorName: "addBasicIntegers",
                         args: {
                             range: [-12, 12],
-                            numberIntegers: 2
+                            numberIntegers: 3
                         },
                         settings: {
                             secondsStageTwo: 30,
@@ -103,11 +103,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         generatorName: 'addFractions',
                         args: {},
                         settings: {
-                            secondsStageTwo: 60,
-                            secondsStageThree: 50,
-                            questionsStageThree: 30,
-                            inRowCorrectStageOne: 7,
-                            inRowCorrectStageTwo: 10,
+                            secondsStageTwo: 120,
+                            secondsStageThree: 80,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'To type the mixed number answer, type the number, followed by a space, followed by a fraction delineated with the / key'
                         }
                     },
@@ -116,11 +116,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         generatorName: 'subtractFractions',
                         args: {},
                         settings: {
-                            secondsStageTwo: 60,
-                            secondsStageThree: 50,
-                            questionsStageThree: 30,
-                            inRowCorrectStageOne: 7,
-                            inRowCorrectStageTwo: 10,
+                            secondsStageTwo: 120,
+                            secondsStageThree: 80,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'To type the mixed number answer, type the number, followed by a space, followed by a fraction delineated with the / key'
                         }
                     }, {
@@ -128,11 +128,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         generatorName: 'multiplyFractions',
                         args: {},
                         settings: {
-                            secondsStageTwo: 60,
-                            secondsStageThree: 50,
-                            questionsStageThree: 30,
-                            inRowCorrectStageOne: 7,
-                            inRowCorrectStageTwo: 10,
+                            secondsStageTwo: 100,
+                            secondsStageThree: 80,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'To type the mixed number answer, type the number, followed by a space, followed by a fraction delineated with the / key'
                         }
                     }, {
@@ -140,11 +140,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         generatorName: 'divideFractions',
                         args: {},
                         settings: {
-                            secondsStageTwo: 60,
-                            secondsStageThree: 50,
-                            questionsStageThree: 30,
-                            inRowCorrectStageOne: 7,
-                            inRowCorrectStageTwo: 10,
+                            secondsStageTwo: 120,
+                            secondsStageThree: 90,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'To type the mixed number answer, type the number, followed by a space, followed by a fraction delineated with the / key'
                         }
                     }
@@ -164,14 +164,14 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         generatorName: "addBasicIntegers",
                         args: {
                             range: [-15, 15],
-                            numberIntegers: 3
+                            numberIntegers: 4
                         },
                         settings: {
                             secondsStageTwo: 30,
                             secondsStageThree: 20,
-                            questionsStageThree: 30,
-                            inRowCorrectStageOne: 7,
-                            inRowCorrectStageTwo: 10,
+                            questionsStageThree: 20,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: ''
                         }
                     },
@@ -185,11 +185,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             ]
                         },
                         settings: {
-                            secondsStageTwo: 8,
-                            secondsStageThree: 7,
-                            questionsStageThree: 70,
-                            inRowCorrectStageOne: 10,
-                            inRowCorrectStageTwo: 15,
+                            secondsStageTwo: 10,
+                            secondsStageThree: 8,
+                            questionsStageThree: 40,
+                            inRowCorrectStageOne: 8,
+                            inRowCorrectStageTwo: 10,
                             instructions: ''
                         }
                     }
@@ -207,11 +207,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             divisionRange: [-12, 12]
                         },
                         settings: {
-                            secondsStageTwo: 25,
-                            secondsStageThree: 18,
-                            questionsStageThree: 40,
-                            inRowCorrectStageOne: 6,
-                            inRowCorrectStageTwo: 8,
+                            secondsStageTwo: 30,
+                            secondsStageThree: 25,
+                            questionsStageThree: 30,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'Where a fraction is the answer, leave the answer as an improper fraction.'
                         }
                     }, {
@@ -221,11 +221,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             range: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
                         },
                         settings: {
-                            secondsStageTwo: 25,
-                            secondsStageThree: 18,
-                            questionsStageThree: 40,
-                            inRowCorrectStageOne: 6,
-                            inRowCorrectStageTwo: 8,
+                            secondsStageTwo: 35,
+                            secondsStageThree: 28,
+                            questionsStageThree: 25,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
                             instructions: 'Where a fraction is the answer, leave the answer as an improper fraction.'
                         }
                     }
@@ -241,8 +241,8 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             withInteger: false
                         },
                         settings: {
-                            secondsStageTwo: 60,
-                            secondsStageThree: 50,
+                            secondsStageTwo: 70,
+                            secondsStageThree: 60,
                             questionsStageThree: 15,
                             inRowCorrectStageOne: 5,
                             inRowCorrectStageTwo: 8,
@@ -296,11 +296,11 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             numberIntegers: 4
                         },
                         settings: {
-                            secondsStageTwo: 15,
-                            secondsStageThree: 12,
+                            secondsStageTwo: 20,
+                            secondsStageThree: 15,
                             questionsStageThree: 20,
-                            inRowCorrectStageOne: 8,
-                            inRowCorrectStageTwo: 10,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 8,
                             instructions: ''
                         }
                     },
@@ -314,9 +314,9 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             ]
                         },
                         settings: {
-                            secondsStageTwo: 8,
-                            secondsStageThree: 9,
-                            questionsStageThree: 50,
+                            secondsStageTwo: 12,
+                            secondsStageThree: 10,
+                            questionsStageThree: 30,
                             inRowCorrectStageOne: 10,
                             inRowCorrectStageTwo: 12,
                             instructions: ''
