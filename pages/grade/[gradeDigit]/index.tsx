@@ -10,13 +10,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import gradeTopicChallenges from './../../../constants/gradeTopicChallenges';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
+import { UserContext } from '../../_app';
 
 // For performance optimization, this should be updated to use getStaticPaths instead of the useEffect: 
 // https://nextjs.org/docs/api-reference/data-fetching/get-static-paths
@@ -71,6 +72,8 @@ const Grade: NextPage = () => {
     }
   }))
 
+  const user = useContext(UserContext);
+
   return (
     <Layout>
       <Box sx={{ flexGrow: 1 }}>
@@ -107,13 +110,26 @@ const Grade: NextPage = () => {
                         {/* Render all challenges for each topic. */}
                         {
                           gradeTopicChallenges[gradeTopicChallenges.findIndex((grade) => grade.gradeDigit === gradeDigit)].topics[topicKey].challenges.map((challenge, challengeKey) => {
-                            return <Link href={`/grade/${gradeDigit}/topic/${topic.topicName}/${challenge.name}`} passHref key={challengeKey}>
-                              {/* <div className={styles.challengeItem}> */}
-                              <Challenge variant='h6' gutterBottom>
-                                {challenge.name}
-                              </Challenge>
+                            return <div key={challengeKey}>
+                              <Link href={`/grade/${gradeDigit}/topic/${topic.topicName}/${challenge.name}`} passHref>
+                                {/* <div className={styles.challengeItem}> */}
+                                <Challenge variant='h6' gutterBottom>
+                                  {challenge.name}
+                                  {user.userObject.completedActivities.findIndex((elem) => {
+                                    // console.log({
+                                    //   user: user.userObject,
+                                    //   elemGradeName: elem.gradeName,
+                                    //   gradeDigit: `Grade ${gradeDigit}`
+                                    // })
+                                    return elem.gradeName === `Grade ${gradeDigit}` && elem.name === challenge.name
+                                  }) !== -1 &&
+                                    <FontAwesomeIcon icon={faCircleCheck} />
+                                  }
+                                </Challenge>
+                              </Link>
+                              
                               {/* </div> */}
-                            </Link>
+                            </div>
                           })
                         }
                       </Item>

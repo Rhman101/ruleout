@@ -425,9 +425,9 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         settings: {
                             secondsStageTwo: 60,
                             secondsStageThree: 50,
-                            questionsStageThree: 15,
+                            questionsStageThree: 10,
                             inRowCorrectStageOne: 5,
-                            inRowCorrectStageTwo: 8,
+                            inRowCorrectStageTwo: 5,
                             instructions: ''
                         }
                     }, {
@@ -439,9 +439,9 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                         settings: {
                             secondsStageTwo: 60,
                             secondsStageThree: 50,
-                            questionsStageThree: 15,
+                            questionsStageThree: 10,
                             inRowCorrectStageOne: 5,
-                            inRowCorrectStageTwo: 8,
+                            inRowCorrectStageTwo: 5,
                             instructions: ''
                         }
                     }

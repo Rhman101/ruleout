@@ -42,12 +42,9 @@ function a11yProps(index: number) {
     };
 }
 
-interface Props {
-}
-
 const gradeValue = ["Grade 7", "Grade 9", "Grade 12"];
 
-const BasicTabs: React.FC<Props> = ({ children, ...props }) => {
+const BasicTabs: React.FC = () => {
     const [value, setValue] = React.useState(0);
     const [challenge, setChallenge] = useState(gradeTopicChallenges[0].topics[0].challenges[0])
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Args, Settings } from "../constants/gradeTopicChallengesInterface";
 // import ProgressBar from '../components/ProgressBar';
 import LevelIndicator from '../components/LevelIndicator';
@@ -15,6 +15,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import ProgressBar from "./ProgressBar";
 import Typography from "@mui/material/Typography";
+import { UserContext } from "../pages/_app";
 
 interface SettingProps {
     generatorName: string,
@@ -82,10 +83,19 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
         })()
     }, [props.args, props.generatorName]);
 
-    const checkChallengeWinLose = () => {
+    const user = useContext(UserContext);
+
+    const checkChallengeWinLose = async () => {
         if (correct / attempted * 100 >= 80) {
             setCompleted(true);
             setDidWin(true);
+            await user.pushCompletedActivity(
+                user.userObject.token, 
+                user.userObject.email, 
+                'Grade ' + props.grade, props.challenge,
+                user.userObject
+                )
+            user.updateCompletedActivities();
         } else {
             setCompleted(true);
             setDidWin(false);

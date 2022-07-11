@@ -86,6 +86,7 @@ const Home: NextPage = () => {
             }} >
               <div style={{ position: 'relative' }}>
                 <Image
+                  priority={true}
                   src={homeBackground}
                   alt='background'
                   layout='responsive'
@@ -111,6 +112,7 @@ const Home: NextPage = () => {
                       padding: '10px 20px 00px 20px',
                       color: '#d9d9d9'
                     }} gutterBottom>Interactive Math Challenges</Typography>
+
                   {[
                     'curriculum-aligned',
                     'for South Africa'

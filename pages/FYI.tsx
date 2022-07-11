@@ -11,15 +11,14 @@ const SupportThisWork: NextPage = () => {
             <Grid container spacing={4}>
                 <Grid item xs={1} md={2}></Grid>
                 <Grid item xs={10} md={8}>
-                    <Typography variant='h3'>Get in touch</Typography>
-                    <Typography variant='body1'>If you would like to support this work or get in touch, please feel free to email me at rhuysen@gmail.com.</Typography>
+                    <Typography variant='h3'>Please note</Typography>
+                    <Typography variant='body1'>This project is under development by just me, Ruan Huysen. Please email me at rhuysen@gmail.com for functionality such as account deletion and password resets.</Typography>
                     <Grid item xs={1} md={2}></Grid>
                 </Grid>
             </Grid>
 
         </Box>
     </Layout>
-
 }
 
 export default SupportThisWork;

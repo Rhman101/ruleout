@@ -1,3 +1,4 @@
+import Button from '@mui/material/Button';
 import { useRouter } from 'next/router';
 
 interface Props {
@@ -11,7 +12,7 @@ const Result: React.FC<Props> = ({ didWin, correct, attempted, restart }) => {
     const router = useRouter();
 
     const anotherChallengeRoute = () => {
-        router.push(`/grade/${router.query.gradeNum}`);
+        router.push(`/grade/${router.query.gradeDigit}`);
     }
 
     return <>
@@ -20,9 +21,8 @@ const Result: React.FC<Props> = ({ didWin, correct, attempted, restart }) => {
             <p>Your score: {Math.round(correct / attempted * 100)}%</p>
             <p>Required score: 80%</p>
         </>}
-        <button onClick={() => restart()}>{didWin ? "Do it again!" : "Try again!"}</button>
-        <br />
-        <button onClick={() => anotherChallengeRoute()}>Pick another challenge</button>
+        {!didWin && <Button variant='contained' sx={{margin: '5px'}} onClick={() => restart()}>Try Again!</Button>}
+        <Button variant='contained' sx={{margin: '5px'}} onClick={() => anotherChallengeRoute()}>Pick another challenge</Button>
     </>
 
 }
