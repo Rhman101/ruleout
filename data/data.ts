@@ -6,7 +6,7 @@ type CreateUserResponse = {
     error?: string;
 }
 
-let url = 'https://equinox-lead-fuel.glitch.me';
+let url = 'https://ruleout-backend.glitch.me';
 
 const createUser = async (name: string, email: string, password: string) => {
     try {
