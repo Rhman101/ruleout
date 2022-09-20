@@ -1,192 +1,101 @@
-import type { NextPage } from 'next'
-import dynamic from 'next/dynamic'
-
-import Image from 'next/image'
-import homeBackground from './../public/home_background.jpg';
-import Layout from '../components/Layout';
-
-import React, { useState } from "react";
-import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquareRootVariable, faAt, faUserPen, faCircleQuestion, faLaptopCode } from '@fortawesome/free-solid-svg-icons'
-
-import WelcomeModal from '../components/HomePage/WelcomeModal'
-
+import { styled, useTheme } from '@mui/material/styles'
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box'
-import { styled } from '@mui/material/styles'
-
+import Layout from '../components/Layout';
 import MiniChallengeTabs from './../components/MiniChallengeTabs';
+import Paper from '@mui/material/Paper';
+import React from "react";
+import type { NextPage } from 'next'
 import Typography from '@mui/material/Typography';
+import { keyframes } from '@mui/system';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Link from 'next/link';
+import useIsSignedIn from '../components/hooks/useIsSignedIn';
+import { useRouter } from 'next/router';
 
-const MiniChallenge = dynamic(
-  () => import('../components/HomePage/MiniChallenge'),
-  { ssr: false }
-)
+const fadeInA = keyframes`
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+`;
 
 const Home: NextPage = () => {
-  const infoBoxes = [{
-    title: 'How it works',
-    text: '',
-    icon: faSquareRootVariable,
-    href: '/how'
+  const theme = useTheme();
+
+  const philosophies = [{
+    idea: 'Practice must be curriculum-aligned',
+    implication: 'Else students have no motivation to practice',
   }, {
-    title: 'Why this way?',
-    text: 'Some pedagogical thoughts.',
-    icon: faCircleQuestion,
-    href: '/'
+    idea: 'In math, one concept builds upon another',
+    implication: 'Confidence ONLY comes from succeeding at fundamentals'
   }, {
-    title: 'By Ruan Huysen',
-    text: 'Click for more info',
-    icon: faUserPen,
-    href: '/bio'
+    idea: 'Math is both a field of knowledge and a skillset',
+    implication: 'Practice needs to continue until a skill is measurably attained'
+  }, {
+    idea: 'Exams are time-bound, like it or not',
+    implication: 'Skill-building practice must be time-bound'
   }]
 
-  const secondInfoBoxes = [{
-    title: 'Want to support me?',
-    subtitle: '... or report a bug?',
-    icon: faAt,
-    href: '/support'
-  }, {
-    title: 'Tech stack and code.',
-    subtitle: 'Click for github link!',
-    icon: faLaptopCode,
-    href: '/stack'
-  }]
-
-  const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
+  const StandoutTextA = styled(Typography)(({ theme }) => ({
     textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
-
-  const Text = styled(Typography)(({ theme }) => ({
-    color: theme.palette.text.primary
+    animation: `${fadeInA} 2s`,
+    color: `${theme.palette.primary.contrastText}`
   }))
 
-  const FAI = styled(FontAwesomeIcon)(({ theme }) => ({
-    color: theme.palette.text.primary,
-    padding: '10px'
-  }))
+  const [isSignedIn] = useIsSignedIn();
+  const router = useRouter();
 
-  return (
-    <Layout>
-      <br></br>
-      <Box sx={{ flexGrow: 1 }}>
+  if (isSignedIn) {
+    router.push('/app');
+  }
 
-        {/* Top set of 2 boxes. */}
-        <Grid container spacing={4}>
-          <Grid item xs={0} sm={.5} md={1}></Grid>
-          <Grid item xs={12} sm={5.5} md={5}>
-            <Item sx={{
-              height: '550px',
-              paddingTop: '10px'
-            }} >
-              <div style={{ position: 'relative' }}>
-                <Image
-                  priority={true}
-                  src={homeBackground}
-                  alt='background'
-                  layout='responsive'
-                  style={{ zIndex: 0 }}
-                  objectFit="cover"
-                  objectPosition='center'
-                >
-                </Image>
-                <Paper sx={{
-                  // zIndex: 1,
-                  position: 'absolute',
-                  top: '10%',
-                  left: '8%',
-                  width: 'auto',
-                  height: 'auto',
-                  margin: '20px',
-                  color: '#FFF',
-                  backgroundColor: 'rgba(0,0,0,.4)'
-                }}>
-                  <Typography
-                    variant='h4'
-                    sx={{
-                      padding: '10px 20px 00px 20px',
-                      color: '#d9d9d9'
-                    }} gutterBottom>Interactive Math Challenges</Typography>
+  return (<Layout isLoginPage={false}>
+    <Grid container spacing={5} id='opening' sx={{
+      marginBottom: { xs: '100px', md: '200px' }
+    }}>
+      <Grid item xs={0} md={6}>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <StandoutTextA variant='h3'>A different way to practice math.</StandoutTextA>
+      </Grid>
+    </Grid>
 
-                  {[
-                    'curriculum-aligned',
-                    'for South Africa'
-                  ].map((elem, indx) =>
-                    <Text
-                      variant='h6'
-                      style={{
-                        zIndex: 1,
-                        padding: '5px 20px 10px 20px',
-                        color: '#d9d9d9'
-                      }}
-                      key={indx}>{elem}
-                    </Text>
-                  )}
-                </Paper>
-              </div>
-            </Item>
-          </Grid>
+    <Grid container spacing={5} id='whyItWorks' sx={{ minHeight: '450px', marginBottom: { xs: '50px', md: '00px' } }}>
+      <Grid item xs={12} md={6}>
+        <Typography variant='h4' color={theme.palette.text.primary}>Core Philosophies</Typography>
+        <Typography variant='h6' color={theme.palette.text.secondary}>... and why they work</Typography>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        {philosophies.map((elem, id) => <div key={id}>
+          <Typography variant='h6' >{elem.idea}</Typography>
+          <Typography variant='subtitle2' sx={{ marginLeft: '15px' }}> - {elem.implication}</Typography>
+        </div>)}
+      </Grid>
+    </Grid>
 
-          <Grid item xs={12} sm={5.5} md={5}>
-            <Item elevation={3} sx={{ height: '550px' }}>
-              <Text variant='h4'>Try a random challenge!</Text>
-              <MiniChallengeTabs>
-              </MiniChallengeTabs>
-            </Item>
-          </Grid>
-          <Grid item xs={0} sm={.5} md={1}></Grid>
-        </Grid>
-
-        <br></br>
-
-        {/* Middle set of 3 boxes. */}
-
-        <Grid container spacing={4}>
-          <Grid item sm={1} md={1}></Grid>
-          <Grid item sm={10}>
-            <Grid container spacing={4}>
-              {infoBoxes.map((elem, id) => <Grid item key={id} xs={12} sm={4} md={4}>
-                <Link href={elem.href} passHref>
-                  <Item sx={{ height: '190px' }}>
-                    <FAI icon={elem.icon} size="4x" ></FAI>
-                    <Text variant="h5">{elem.title}</Text>
-                    <Text variant='subtitle1'>{elem.text}</Text>
-                  </Item>
-                </Link>
-              </Grid>
-              )}
-            </Grid>
-          </Grid>
-          <Grid item sm={1} md={1}></Grid>
-        </Grid>
-
-        <br></br>
-
-        {/* Bottom set of 2 boxes. */}
-        <Grid container spacing={4}>
-          <Grid item sm={1} ></Grid>
-          {secondInfoBoxes.map((elem, indx) => <Grid xs={12} sm={5} item key={indx}>
-            <Link href={elem.href} passHref>
-              <Item>
-                <FAI icon={elem.icon} size="4x"></FAI>
-                <Text variant="h5">{elem.title}</Text>
-                <Text variant='subtitle1'>{elem.subtitle}</Text>
-              </Item>
-            </Link>
-          </Grid>
-          )}
-          <Grid item sm={1}></Grid>
-        </Grid>
-        <br></br>
-
-      </Box>
-
-    </Layout >
+    <Grid container spacing={5} id='tryIt' sx={{ minHeight: '550px' }}>
+      <Grid item xs={12} md={6}>
+        <Typography variant='h4' sx={{ display: { xs: 'flex', md: 'none' }, margin: '15px', textAlign: 'center' }}>Try a challenge!</Typography>
+        <Typography variant='h6' sx={{ display: { xs: 'flex', md: 'none' }, margin: '15px', textAlign: 'center' }}>
+          ... or login to get started!
+          <Link href='/login' passHref>
+            <Button variant='contained' size='small' sx={{ margin: '5px', width: '100px', display: { xs: 'flex', md: 'none' } }}>Login</Button>
+          </Link>
+        </Typography>
+        <Paper elevation={5}>
+          <MiniChallengeTabs />
+        </Paper>
+      </Grid>
+      <Grid item xs={0} md={6} sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <Stack>
+          <Typography variant='h4' sx={{ marginTop: '150px' }}>Try a challenge!</Typography>
+          <Typography variant='subtitle1'>... or login to get started!</Typography>
+          <Link href='/login' passHref>
+            <Button variant='contained' size='small' sx={{ margin: '20px', width: '100px' }}>Login</Button>
+          </Link>
+        </Stack>
+      </Grid>
+    </Grid>
+  </Layout>
   )
 }
 

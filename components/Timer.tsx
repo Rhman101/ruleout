@@ -4,7 +4,6 @@ import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgres
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { Question } from '../constants/questionGenerator/questionGeneratorInterface';
-import styles from './Timer.module.css';
 
 function LinearProgressWithLabel(props: LinearProgressProps & { value: number, display: number }) {
     return (

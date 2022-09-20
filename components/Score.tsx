@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import styles from './Score.module.css';
-import { StaticMathField } from 'react-mathquill';
 import CircularProgress, {
     CircularProgressProps,
 } from '@mui/material/CircularProgress';

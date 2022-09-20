@@ -92,6 +92,60 @@ const gradeTopicChallenges: GradeTopicChallenges[] = [
                             inRowCorrectStageTwo: 10,
                             instructions: ''
                         }
+                    }, {
+                        name: "Basic Exponents",
+                        generatorName: "basicExponents",
+                        args: {
+                            exponentQuestions: [
+                                { likelyhood: 1, base: 0, exponents: [1, 2, 3, 4, 5, 6] },
+                                { likelyhood: 3, base: 1, exponents: [2, 3, 4, 5, 6] },
+                                { likelyhood: 3, base: 2, exponents: [1, 2, 3, 4, 5, 6] },
+                                { likelyhood: 3, base: 3, exponents: [0, 2, 3] },
+                                { likelyhood: 2, base: 4, exponents: [2, 3] },
+                                { likelyhood: 2, base: 5, exponents: [2, 3] },
+                                { likelyhood: 2, base: 6, exponents: 2 },
+                                { likelyhood: 2, base: 7, exponents: 2 },
+                                { likelyhood: 2, base: 8, exponents: 2 },
+                                { likelyhood: 2, base: 9, exponents: 2 },
+                                { likelyhood: 1, base: 10, exponents: 2 },
+                                { likelyhood: 2, base: 11, exponents: 2 },
+                                { likelyhood: 2, base: 12, exponents: 2 },
+                            ]
+                        },
+                        settings: {
+                            secondsStageTwo: 30,
+                            secondsStageThree: 20,
+                            questionsStageThree: 30,
+                            inRowCorrectStageOne: 7,
+                            inRowCorrectStageTwo: 10,
+                            instructions: ''
+                        }
+                    }, {
+                        name: "Basic Roots",
+                        generatorName: "basicRoots",
+                        args: {
+                            exponentQuestions: [
+                                { likelyhood: 3, base: 2, exponents: [1, 2, 3, 4, 5, 6] },
+                                { likelyhood: 3, base: 3, exponents: [0, 2, 3] },
+                                { likelyhood: 2, base: 4, exponents: [2, 3] },
+                                { likelyhood: 2, base: 5, exponents: [2, 3] },
+                                { likelyhood: 2, base: 6, exponents: 2 },
+                                { likelyhood: 2, base: 7, exponents: 2 },
+                                { likelyhood: 2, base: 8, exponents: 2 },
+                                { likelyhood: 2, base: 9, exponents: 2 },
+                                { likelyhood: 1, base: 10, exponents: 2 },
+                                { likelyhood: 2, base: 11, exponents: 2 },
+                                { likelyhood: 2, base: 12, exponents: 2 },
+                            ]
+                        },
+                        settings: {
+                            secondsStageTwo: 30,
+                            secondsStageThree: 20,
+                            questionsStageThree: 30,
+                            inRowCorrectStageOne: 7,
+                            inRowCorrectStageTwo: 10,
+                            instructions: ''
+                        }
                     }
                 ]
             },

@@ -7,7 +7,8 @@ export interface Args {
     additionRange?: number[],
     multiplicationRange?: number[],
     divisionRange?: number[],
-    leadingCoefficient?: boolean
+    leadingCoefficient?: boolean,
+    exponentQuestions?: { likelyhood: number, base: number, exponents: number | number[] }[]
 }
 
 export interface Settings {
@@ -37,8 +38,8 @@ export interface Topics {
     challenges: Challenge[]
 }
 
-export const initialChallenge: Challenge =  {
-    name: '', 
+export const initialChallenge: Challenge = {
+    name: '',
     generatorName: '',
     args: {},
     settings: {

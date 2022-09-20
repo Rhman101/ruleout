@@ -35,3 +35,7 @@ a {
   color: rgb(39, 97, 184);
   font-weight: 500;
 }
+
+.mq-math-mode {
+  font-size: 30px;
+}

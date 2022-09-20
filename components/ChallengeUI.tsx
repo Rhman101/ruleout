@@ -1,21 +1,19 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Args, Settings } from "../constants/gradeTopicChallengesInterface";
 // import ProgressBar from '../components/ProgressBar';
 import LevelIndicator from '../components/LevelIndicator';
 import dynamic from "next/dynamic";
-import styles from './ChallengeUI.module.css';
 import Score from "./Score";
 import Timer from "./Timer";
 import { useRouter } from 'next/router';
 import Result from "./Result";
 import { QuestionGenerator } from './../constants/questionGenerator/questionGeneratorInterface';
-import { Button } from "react-bootstrap";
-import WelcomeModal from "./HomePage/WelcomeModal";
-import Box from "@mui/material/Box";
+// import WelcomeModal from "./HomePage/WelcomeModal";
 import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 import ProgressBar from "./ProgressBar";
 import Typography from "@mui/material/Typography";
-import { UserContext } from "../pages/_app";
+// import { UserContext } from "../pages/_app";
 
 interface SettingProps {
     generatorName: string,
@@ -43,7 +41,7 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
         return { question: [{ latex: false, text: '' }], answer: [''] }
     })
     const [question, setQuestion] = useState<QuestionGenerator>({ question: [{ latex: false, text: '' }], answer: ['_'] });
-    
+
     const [level, setLevel] = useState(1);
     const [useHistory, setUseHistory] = useState(true);
     const [history, setHistory] = useState<number[]>([]);
@@ -83,19 +81,10 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
         })()
     }, [props.args, props.generatorName]);
 
-    const user = useContext(UserContext);
-
     const checkChallengeWinLose = async () => {
         if (correct / attempted * 100 >= 80) {
             setCompleted(true);
             setDidWin(true);
-            await user.pushCompletedActivity(
-                user.userObject.token, 
-                user.userObject.email, 
-                'Grade ' + props.grade, props.challenge,
-                user.userObject
-                )
-            user.updateCompletedActivities();
         } else {
             setCompleted(true);
             setDidWin(false);
@@ -194,59 +183,52 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
         setTimeout(() => setHighlightWrong(false), 300);
     }
 
-    return <>
-        <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={4}>
-                <Grid item xs={0} sm={2}></Grid>
-                <Grid item xs={12} sm={8}>
-                    <Grid container spacing={4}>
+    useEffect(() => document.getElementById('scrollHere')?.scrollIntoView({ behavior: 'smooth' }), []);
 
-                        {/* Content on the left. */}
-                        <Grid item xs={12} sm={6}>
-                            <LevelIndicator
-                                level={level}
-                                grade={props.grade}
-                                topic={props.topic}
-                                challenge={props.challenge}
-                            ></LevelIndicator>
-                        </Grid>
+    return <Paper elevation={8} sx={{ marginTop: '10px', padding: '30px' }}>
+        <Grid container spacing={4}>
 
-                        {/* Content on the right. */}
-                        <Grid item xs={12} sm={6}>
-                            {useHistory && <ProgressBar history={history}></ProgressBar>}
-                            {!useHistory && <Score questionNumber={questionNumber} correct={correct} attempted={attempted} questions={props.settings.questionsStageThree}></Score>}
-                        </Grid>
-
-                        {/* Question and Answer Content */}
-                        <Grid item xs={12}>
-                            {!completed && <>
-                                {level !== 1 && <Timer question={question.question} timeOut={() => submitAnswer()} seconds={level === 2 ? Number(props.settings.secondsStageTwo) : Number(props.settings.secondsStageThree)}></Timer>}
-                                <Question question={question.question}></Question>
-                                <Answer
-                                    highlightWrong={highlightWrong}
-                                    submitAnswer={(answer: string) => submitAnswer(answer)}
-                                ></Answer>
-                                {props.settings.instructions && <Typography variant="body1" component="div">
-                                    <span style={{ fontWeight: 'bolder' }}>FYI: </span>{props.settings.instructions}
-                                </Typography>}
-                            </>}
-                            {completed &&
-                                <>
-                                    <Result
-                                        didWin={didWin}
-                                        restart={restart}
-                                        correct={correct}
-                                        attempted={attempted}
-                                    ></Result>
-                                </>}
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid item xs={0} sm={2}></Grid>
+            {/* Content on the left. */}
+            <Grid item xs={12} sm={6}>
+                <LevelIndicator
+                    level={level}
+                    grade={props.grade}
+                    topic={props.topic}
+                    challenge={props.challenge}
+                ></LevelIndicator>
             </Grid>
-        </Box>
-    </>
 
+            {/* Content on the right. */}
+            <Grid item xs={12} sm={6}>
+                {useHistory && <ProgressBar history={history}></ProgressBar>}
+                {!useHistory && <Score questionNumber={questionNumber} correct={correct} attempted={attempted} questions={props.settings.questionsStageThree}></Score>}
+            </Grid>
+
+            {/* Question and Answer Content */}
+            <Grid item xs={12}>
+                {!completed && <>
+                    {level !== 1 && <Timer question={question.question} timeOut={() => submitAnswer()} seconds={level === 2 ? Number(props.settings.secondsStageTwo) : Number(props.settings.secondsStageThree)}></Timer>}
+                    <Question question={question.question}></Question>
+                    <Answer
+                        highlightWrong={highlightWrong}
+                        submitAnswer={(answer: string) => submitAnswer(answer)}
+                    ></Answer>
+                    {props.settings.instructions && <Typography variant="body1" component="div">
+                        <span style={{ fontWeight: 'bolder' }}>FYI: </span>{props.settings.instructions}
+                    </Typography>}
+                </>}
+                {completed &&
+                    <>
+                        <Result
+                            didWin={didWin}
+                            restart={restart}
+                            correct={correct}
+                            attempted={attempted}
+                        ></Result>
+                    </>}
+            </Grid>
+        </Grid>
+    </Paper>
 }
 
 export default ChallengeUI;

@@ -5,7 +5,6 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Typography from "@mui/material/Typography";
 
-
 addStyles();
 
 interface Props {

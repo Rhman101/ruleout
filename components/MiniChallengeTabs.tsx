@@ -1,16 +1,13 @@
-import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { Challenge, initialChallenge } from '../constants/gradeTopicChallengesInterface'
 import gradeTopicChallenges from '../constants/gradeTopicChallenges';
 import MiniChallenge from './HomePage/MiniChallenge';
-import { useEffect, useState } from 'react';
 import { randomNumber } from '../constants/library';
+import { ReactNode, FC, useState, SyntheticEvent, useEffect } from 'react';
 
 interface TabPanelProps {
-    children?: React.ReactNode;
+    children?: ReactNode;
     index: number;
     value: number;
 }
@@ -44,11 +41,11 @@ function a11yProps(index: number) {
 
 const gradeValue = ["Grade 7", "Grade 9", "Grade 12"];
 
-const BasicTabs: React.FC = () => {
-    const [value, setValue] = React.useState(0);
+const BasicTabs: FC = () => {
+    const [value, setValue] = useState(0);
     const [challenge, setChallenge] = useState(gradeTopicChallenges[0].topics[0].challenges[0])
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleChange = (event: SyntheticEvent, newValue: number) => {
         let grade;
         if (newValue === 0) {
             grade = gradeTopicChallenges[0];

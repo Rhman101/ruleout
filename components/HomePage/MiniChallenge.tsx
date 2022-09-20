@@ -1,19 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { Args, Challenge, Settings } from "../../constants/gradeTopicChallengesInterface";
-import ProgressBar from '../../components/ProgressBar';
-import LevelIndicator from '../../components/LevelIndicator';
+import { Challenge } from "../../constants/gradeTopicChallengesInterface";
 import dynamic from "next/dynamic";
-import styles from './MiniChallenge.module.css';
-import Score from "./../Score";
-import Timer from "./../Timer";
-import { useRouter } from 'next/router';
-import Result from "./../Result";
 import { QuestionGenerator } from './../../constants/questionGenerator/questionGeneratorInterface';
-import gradeTopicChallenges from './../../constants/gradeTopicChallenges';
-import { randomNumber } from "../../constants/library";
-import { Button } from "react-bootstrap";
+import Button from '@mui/material/Button';
 import Link from "next/link";
-import WelcomeModal from "./WelcomeModal";
 
 interface SettingProps {
     gradeString: string
@@ -98,8 +88,7 @@ const MiniChallenge: React.FC<SettingProps> = (props: SettingProps) => {
         </>}
         {correct > 2 && <>
             <p>{`Too easy for you? For complete, timed, CAPS-aligned challenges, click on the button below!`}</p>
-            <Link href={'/challenges'} passHref><Button>Challenge Accepted!</Button></Link>
-            <WelcomeModal handleClose={() => {}}></WelcomeModal>
+            <Link href={'/app'} passHref><Button>Challenge Accepted!</Button></Link>
         </>
         }
     </>
