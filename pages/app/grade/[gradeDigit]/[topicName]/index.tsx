@@ -26,17 +26,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 // `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps(context: GetStaticPropsContext) {
+  console.log(context);
   for (let i = 0; i < gradeTopicChallenges.length; i++) {
     let grade = gradeTopicChallenges[i];
+    console.log('grade');
+    console.log(grade);
     for (let k = 0; k < grade.topics.length; k++) {
       if (
-        grade.topics[i].topicName.toLowerCase() === context.params?.topicName
+        grade.topics[k].topicName.toLowerCase() === context.params?.topicName
         &&
         grade.gradeDigit === context.params?.gradeDigit
       ) {
         return { props: { gradeDigit: context.params.gradeDigit, topic: grade.topics[k] } }
       }
-
     }
   }
   return { props: { error: 'true' } }
