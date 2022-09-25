@@ -62,8 +62,7 @@ export default function SignInPage() {
         );
     }
     return (
-        <Stack
-        >
+        <Stack>
             <Typography variant='h3'>Welcome!</Typography>
             <p>Welcome {firebase.auth().currentUser?.displayName ? firebase.auth().currentUser?.displayName : 'Person-who-should-not-be-logged-in'}! You are now signed-in!</p>
             <button onClick={handleGetAuth}>Get auth</button>

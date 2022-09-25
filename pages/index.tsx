@@ -50,12 +50,12 @@ const Home: NextPage = () => {
 
   return (<Layout isLoginPage={false}>
     <Grid container spacing={5} id='opening' sx={{
-      marginBottom: { xs: '100px', md: '200px' }
+      marginBottom: { xs: '200px', md: '330px' }
     }}>
       <Grid item xs={0} md={6}>
       </Grid>
       <Grid item xs={12} md={6}>
-        <StandoutTextA variant='h3'>A different way to practice math.</StandoutTextA>
+        <StandoutTextA variant='h3'>A different way to practice math</StandoutTextA>
       </Grid>
     </Grid>
 

@@ -19,9 +19,9 @@ interface SettingProps {
     generatorName: string,
     settings: Settings,
     args: Args,
-    grade: string,
+    gradeDigit: string,
     topic: string,
-    challenge: string
+    challengeName: string
 }
 
 const Answer = dynamic(
@@ -192,9 +192,9 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
             <Grid item xs={12} sm={6}>
                 <LevelIndicator
                     level={level}
-                    grade={props.grade}
+                    gradeDigit={props.gradeDigit}
                     topic={props.topic}
-                    challenge={props.challenge}
+                    challenge={props.challengeName}
                 ></LevelIndicator>
             </Grid>
 

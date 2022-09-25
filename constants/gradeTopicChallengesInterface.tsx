@@ -27,7 +27,7 @@ export interface Challenge {
     settings: Settings
 }
 
-export interface GradeTopicChallenges {
+export interface GradeTopicChallenge {
     name: string,
     gradeDigit: string,
     topics: Topics[]

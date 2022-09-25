@@ -1,6 +1,6 @@
-import { GradeTopicChallenges } from "./gradeTopicChallengesInterface";
+import { GradeTopicChallenge } from "./gradeTopicChallengesInterface";
 
-const gradeTopicChallenges: GradeTopicChallenges[] = [
+const gradeTopicChallenges: GradeTopicChallenge[] = [
     // {
     //     name: "Grade 1",
     //     topics: []

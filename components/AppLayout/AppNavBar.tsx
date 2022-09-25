@@ -10,16 +10,33 @@ import { useTheme } from '@mui/material/styles';
 import useIsSignedIn from '../hooks/useIsSignedIn';
 import Stack from '@mui/material/Stack';
 import AccountMenu from './AccountMenu';
+import { useRouter } from 'next/router';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import IconButton from '@mui/material/IconButton';
 
 const ResponsiveAppBar = () => {
     const theme = useTheme();
     const isSignedIn = useIsSignedIn();
+    const router = useRouter();
 
     return (
         <Box sx={{ flexGrow: 1 }} id='scrollHere'>
             <AppBar position='static' >
                 <Toolbar>
-                    {/* <Typography variant='h4'>Math Button</Typography> */}
+                    <Stack
+                        // sx={{ flexGrow: 1 }}
+                        alignItems="center"
+                    >
+                        <Button 
+                        variant='text' 
+                        sx={{color: theme.palette.getContrastText(theme.palette.primary.main)}}
+                        startIcon={<ArrowBackIcon />}
+                        size='large'
+                        >
+                            Back
+                        </Button>
+                    </Stack>
+                    {/* <Typography variant='h4' onClick={() => router.back()}>Back Button</Typography> */}
                     <Stack
                         sx={{ flexGrow: 1 }}
                         alignItems="center"
@@ -53,20 +70,11 @@ const ResponsiveAppBar = () => {
                             Login
                         </Button>
                     </Link>}
-                    {isSignedIn &&
-                        <AccountMenu />
-
-                        // <Button
-                        //     sx={{ my: 2, color: 'white', display: 'block' }}
-                        //     color='inherit'
-                        //     size='large'
-                        // >
-                        //     account stuff
-                        // </Button>
-                    }
+                    {isSignedIn && <AccountMenu />}
                 </Toolbar>
             </AppBar>
         </Box>
     );
 };
+
 export default ResponsiveAppBar;
