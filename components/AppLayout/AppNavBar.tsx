@@ -24,7 +24,6 @@ const ResponsiveAppBar = () => {
             <AppBar position='static' >
                 <Toolbar>
                     <Stack
-                        // sx={{ flexGrow: 1 }}
                         alignItems="center"
                     >
                         <Button 
@@ -32,6 +31,7 @@ const ResponsiveAppBar = () => {
                         sx={{color: theme.palette.getContrastText(theme.palette.primary.main)}}
                         startIcon={<ArrowBackIcon />}
                         size='large'
+                        onClick={() => router.back()}
                         >
                             Back
                         </Button>
