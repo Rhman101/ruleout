@@ -30,10 +30,10 @@ export interface Challenge {
 export interface GradeTopicChallenge {
     name: string,
     gradeDigit: string,
-    topics: Topics[]
+    topics: Topic[]
 }
 
-export interface Topics {
+export interface Topic {
     topicName: string,
     challenges: Challenge[]
 }

@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Layout from '../components/Layout';
 import MiniChallengeTabs from './../components/MiniChallengeTabs';
 import Paper from '@mui/material/Paper';
-import React from "react";
+import React, { useEffect } from "react";
 import type { NextPage } from 'next'
 import Typography from '@mui/material/Typography';
 import { keyframes } from '@mui/system';

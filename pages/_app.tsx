@@ -15,10 +15,10 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 // import '@fortawesome/fontawesome-svg-core/styles.css'
 import { createContext, useEffect, useState } from 'react';
 // config.autoAddCss = false
-import data from './../data/data';
+// import data from './../data/data';
 
 // Change to Firebase
-import { FirebaseAppProvider} from 'reactfire';
+// import { FirebaseAppProvider} from 'reactfire';
 
 const theme = createTheme({
   palette: {

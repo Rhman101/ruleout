@@ -7,9 +7,27 @@ import Grid from '@mui/material/Grid';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import { useTheme } from '@mui/material/styles';
+import { Doc } from '../constants/docsInterface';
 
-const GTCCard: React.FC<{ GTC: GradeTopicChallenge, key?: number }> = ({ GTC }) => {
+const GTCCard: React.FC<{ GTC: GradeTopicChallenge, key?: number, completed?: Doc[] }> = ({ GTC, completed }) => {
     const theme = useTheme();
+
+    const isCompleted = (gradeDigit: string, topicName: string, challengeName: string) => {
+        if (completed !== undefined) {
+            if (
+                completed.findIndex((elem) => 
+                elem.challengeName === challengeName
+                &&
+                elem.gradeDigit === gradeDigit 
+                &&
+                elem.topicName === topicName
+                ) !== -1
+            ) {
+                return true;
+            }
+        } 
+        return false;
+    }
 
     return <Paper sx={{ margin: '20px', padding: '20px', width: { xs: '100%', sm: '600px' } }} elevation={5}>
         <Grid container spacing={2}> {/* Container for grades, topics and challenges. */}
@@ -24,7 +42,7 @@ const GTCCard: React.FC<{ GTC: GradeTopicChallenge, key?: number }> = ({ GTC }) 
 
                 <Grid item xs={12}>
                     {/* Topic Name */}
-                    <Link href={`/app/grade/${GTC.gradeDigit}/${topic.topicName.toLowerCase()}`} style={{ textDecoration: 'none' }}>
+                    <Link href={`/app/grade/${GTC.gradeDigit}/${topic.topicName}`} style={{ textDecoration: 'none' }}>
                         <Typography variant='h6'>
                             {topic.topicName}
                         </Typography>
@@ -42,7 +60,7 @@ const GTCCard: React.FC<{ GTC: GradeTopicChallenge, key?: number }> = ({ GTC }) 
                             <Grid container spacing={1}>
                                 <Grid item xs={10}>
                                     <Link
-                                        href={`/app/grade/${GTC.gradeDigit}/${topic.topicName.toLowerCase()}/${challenge.name.toLowerCase()}`}
+                                        href={`/app/grade/${GTC.gradeDigit}/${topic.topicName}/${challenge.name}`}
                                         style={{ textDecoration: 'none' }}
                                     >
                                         <Typography
@@ -55,7 +73,7 @@ const GTCCard: React.FC<{ GTC: GradeTopicChallenge, key?: number }> = ({ GTC }) 
                                     </Link>
                                 </Grid>
                                 <Grid item xs={2}>
-                                    {challengeIndex === 0 ? <CheckCircleRoundedIcon color='primary' /> : <CancelRoundedIcon color='secondary' />}
+                                    {isCompleted(GTC.gradeDigit, topic.topicName, challenge.name) ? <CheckCircleRoundedIcon color='primary' /> : <CancelRoundedIcon color='secondary' />}
                                 </Grid>
                             </Grid>
                         </Grid>

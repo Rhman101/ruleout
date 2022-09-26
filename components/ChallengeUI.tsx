@@ -224,6 +224,9 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
                             restart={restart}
                             correct={correct}
                             attempted={attempted}
+                            gradeDigit={props.gradeDigit}
+                            topicName={props.topic}
+                            challengeName={props.challengeName}
                         ></Result>
                     </>}
             </Grid>

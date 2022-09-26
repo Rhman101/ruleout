@@ -11,6 +11,8 @@ import { useTheme } from '@mui/material/styles';
 import useIsSignedIn from './hooks/useIsSignedIn';
 import { useRouter } from 'next/router';
 
+firebase.initializeApp(firebaseConfig)
+
 // Configure FirebaseUI.
 const uiConfig = {
     // Popup signin flow rather than redirect flow.
@@ -63,10 +65,10 @@ export default function SignInPage() {
     }
     return (
         <Stack>
-            <Typography variant='h3'>Welcome!</Typography>
-            <p>Welcome {firebase.auth().currentUser?.displayName ? firebase.auth().currentUser?.displayName : 'Person-who-should-not-be-logged-in'}! You are now signed-in!</p>
-            <button onClick={handleGetAuth}>Get auth</button>
-            <button onClick={signOut}>Sign-out</button>
+            {/* <Typography variant='h3'>Welcome!</Typography> */}
+            {/* <p>Welcome {firebase.auth().currentUser?.displayName ? firebase.auth().currentUser?.displayName : 'Person-who-should-not-be-logged-in'}! You are now signed-in!</p> */}
+            {/* <button onClick={handleGetAuth}>Get auth</button> */}
+            {/* <button onClick={signOut}>Sign-out</button> */}
         </Stack>
     );
 }

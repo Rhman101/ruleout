@@ -12,7 +12,6 @@ import Stack from '@mui/material/Stack';
 import AccountMenu from './AccountMenu';
 import { useRouter } from 'next/router';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import IconButton from '@mui/material/IconButton';
 
 const ResponsiveAppBar = () => {
     const theme = useTheme();
