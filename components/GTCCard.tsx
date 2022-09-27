@@ -21,6 +21,8 @@ const GTCCard: React.FC<{ GTC: GradeTopicChallenge, key?: number, completed?: Do
                 elem.gradeDigit === gradeDigit 
                 &&
                 elem.topicName === topicName
+                && 
+                elem.successful === true
                 ) !== -1
             ) {
                 return true;
