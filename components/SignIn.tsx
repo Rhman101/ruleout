@@ -24,7 +24,8 @@ const uiConfig = {
     },
     // We will display Google and Facebook as auth providers.
     signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD
     ],
 };
 export default function SignInPage() {
