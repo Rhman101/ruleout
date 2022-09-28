@@ -8,7 +8,7 @@ export interface Args {
     multiplicationRange?: number[],
     divisionRange?: number[],
     leadingCoefficient?: boolean,
-    exponentQuestions?: { likelyhood: number, base: number, exponents: number | number[] }[]
+    exponentQuestions?: { likelyhood: number, base: number, exponents: number | number[] }[];
 }
 
 export interface Settings {

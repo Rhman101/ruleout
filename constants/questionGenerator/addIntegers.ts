@@ -11,7 +11,11 @@ const addIntegers = (arg: arg): QuestionGenerator => {
         for (let i = 2; i < 26; i++) {
             integerInputs.push(i)
         }
-    } 
+    } else if (grade === 5) {
+        for (let i = 2; i < 18; i++) {
+            integerInputs.push(i);
+        }
+    }
     
     const x = integerInputs[Math.floor(Math.random() * integerInputs.length)];
     const y = integerInputs[Math.floor(Math.random() * integerInputs.length)];

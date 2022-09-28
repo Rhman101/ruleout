@@ -17,10 +17,92 @@ const gradeTopicChallenges: GradeTopicChallenge[] = [
     //     name: "Grade 4",
     //     topics: []
     // },
-    // {
-    //     name: "Grade 5",
-    //     topics: []
-    // },
+    {
+        name: "Grade 5",
+        gradeDigit: '5',
+        topics: [
+            {
+                topicName: 'Whole Numbers',
+                challenges: [
+                    {
+                        name: 'Addition',
+                        generatorName: 'addIntegers',
+                        args: {
+                            grade: 5
+                        },
+                        settings: {
+                            secondsStageTwo: 20,
+                            secondsStageThree: 16,
+                            questionsStageThree: 30,
+                            inRowCorrectStageOne: 8,
+                            inRowCorrectStageTwo: 10,
+                            instructions: ''
+                        }
+                    }, {
+                        name: "Subtraction",
+                        generatorName: 'subtractIntegers',
+                        args: {
+                            grade: 5
+                        },
+                        settings: {
+                            secondsStageTwo: 20,
+                            secondsStageThree: 16,
+                            questionsStageThree: 30,
+                            inRowCorrectStageOne: 8,
+                            inRowCorrectStageTwo: 10,
+                            instructions: ''
+                        }
+                    },
+                    {
+                        name: "Multiplication",
+                        generatorName: "multiplyIntegers",
+                        args: {
+                            integerInputs: [2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10],
+                        },
+                        settings: {
+                            secondsStageTwo: 18,
+                            secondsStageThree: 15,
+                            questionsStageThree: 50,
+                            inRowCorrectStageOne: 9,
+                            inRowCorrectStageTwo: 12,
+                            instructions: ''
+                        }
+                    }, {
+                        name: "Division",
+                        generatorName: "divideIntegers",
+                        args: {
+                            integerInputs: [2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10],
+                        },
+                        settings: {
+                            secondsStageTwo: 23,
+                            secondsStageThree: 20,
+                            questionsStageThree: 30,
+                            inRowCorrectStageOne: 6,
+                            inRowCorrectStageTwo: 8,
+                            instructions: ''
+                        }
+                    }
+                ]
+            }, {
+                topicName: 'Common Fractions',
+                challenges: [
+                    {
+                        name: 'Addition: Different Denominators',
+                        generatorName: 'addFractions',
+                        args: {},
+                        settings: {
+                            secondsStageTwo: 60,
+                            secondsStageThree: 40,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
+                            instructions: ''
+                        }
+                    }
+                ]
+            }
+        ]
+    },
     // {
     //     name: "Grade 6",
     //     topics: []

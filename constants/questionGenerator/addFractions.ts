@@ -2,14 +2,25 @@ import { HCF, randomNumber } from '../library';
 import { QuestionGenerator } from './questionGeneratorInterface';
 
 interface arg {
-
+    grade?: number
 }
 
 const addFractions = (arg: arg): QuestionGenerator => {
-    const a = randomNumber(1, 10);
-    const b = randomNumber(a + 1, 12);
-    const c = randomNumber(1, 10);
-    const d = randomNumber(c + 1, 12);
+    let a;
+    let b;
+    let c;
+    let d;
+    if (arg.grade === 5) {
+        a = randomNumber(1, 8);
+        c = randomNumber(1, 8);
+        b = randomNumber(a + 1, 10);
+        d = randomNumber(c + 1, 10);
+    } else {
+        a = randomNumber(1, 10);
+        c = randomNumber(1, 10);
+        b = randomNumber(a + 1, 12);
+        d = randomNumber(c + 1, 12);
+    }
 
     let numerator = a * d + c * b;
     let denominator = b * d;

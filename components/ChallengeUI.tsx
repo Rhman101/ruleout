@@ -5,7 +5,6 @@ import LevelIndicator from '../components/LevelIndicator';
 import dynamic from "next/dynamic";
 import Score from "./Score";
 import Timer from "./Timer";
-import { useRouter } from 'next/router';
 import Result from "./Result";
 import { QuestionGenerator } from './../constants/questionGenerator/questionGeneratorInterface';
 // import WelcomeModal from "./HomePage/WelcomeModal";
@@ -36,7 +35,6 @@ const Question = dynamic(
 )
 
 const ChallengeUI: React.FC<SettingProps> = (props) => {
-    const router = useRouter();
     const questionGenerator = useRef((arg: any) => {
         return { question: [{ latex: false, text: '' }], answer: [''] }
     })
@@ -51,6 +49,8 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
     const [completed, setCompleted] = useState(false);
     const [didWin, setDidWin] = useState(false);
     const [questionNumber, setQuestionNumber] = useState(1);
+
+    useEffect(() => console.log(question));
 
     const createHistory = (stage: number) => {
         let inRowCorrect;
