@@ -47,3 +47,40 @@ export const HCF_three = (a: number, b: number, c: number) => {
 
     return 1;
 }
+
+export const reduceFraction = (inputNumerator: number, inputDenominator: number) => {
+    let num = 0;
+    let den = 0;
+    num = inputNumerator;
+    den = inputDenominator;
+    let _hcf = HCF(num, den);
+    while (_hcf > 1) {
+        num /= _hcf;
+        den /= _hcf;
+        _hcf = HCF(num, den);
+    }
+    return {
+        num,
+        den
+    }
+
+}
+
+export const toMixedNum = (inputNum: number, inputDen: number, reducedFrac: boolean = false) => {
+    let num = 0;
+    let den = 0;
+    num = inputNum;
+    den = inputDen;
+    let int = 0;
+    while (num > den) {
+        int++;
+        num -= den;
+    }
+    if (reducedFrac) {
+        let reduced = reduceFraction(num, den);
+        num = reduced.num;
+        den = reduced.den;
+    }
+    return { int, num, den }
+
+}

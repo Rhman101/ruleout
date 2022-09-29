@@ -98,9 +98,25 @@ const gradeTopicChallenges: GradeTopicChallenge[] = [
                             inRowCorrectStageTwo: 6,
                             instructions: ''
                         }
-                    }
+                    }, 
+                    // {
+                    //     name: 'Addition: Same Denominators',
+                    //     generatorName: 'addFractions_same_denominator',
+                    //     args: {
+                    //         max: 12,
+                    //         denCanBeGreaterThanNum: false
+                    //     },
+                    //     settings: {
+                    //         secondsStageTwo: 60,
+                    //         secondsStageThree: 40,
+                    //         questionsStageThree: 15,
+                    //         inRowCorrectStageOne: 5,
+                    //         inRowCorrectStageTwo: 6,
+                    //         instructions: ''
+                    //     }
+                    // }
                 ]
-            }
+            }, 
         ]
     },
     // {

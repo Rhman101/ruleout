@@ -9,6 +9,8 @@ export interface Args {
     divisionRange?: number[],
     leadingCoefficient?: boolean,
     exponentQuestions?: { likelyhood: number, base: number, exponents: number | number[] }[];
+    max?: number;
+    denCanBeGreaterThanNum?: boolean
 }
 
 export interface Settings {
