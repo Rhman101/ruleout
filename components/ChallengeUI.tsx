@@ -50,7 +50,7 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
     const [didWin, setDidWin] = useState(false);
     const [questionNumber, setQuestionNumber] = useState(1);
 
-    useEffect(() => console.log(question));
+    useEffect(() => console.log({ useHistory, history, firstAttempt, correct, attempted, completed, didWin, questionNumber }));
 
     const createHistory = (stage: number) => {
         let inRowCorrect;
@@ -110,7 +110,7 @@ const ChallengeUI: React.FC<SettingProps> = (props) => {
             }
         }
         if (level === 3) {
-            if (attempted === props.settings.questionsStageThree - 1) {
+            if (attempted >= props.settings.questionsStageThree - 1) {
                 checkChallengeWinLose();
             }
         }

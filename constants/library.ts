@@ -81,6 +81,12 @@ export const toMixedNum = (inputNum: number, inputDen: number, reducedFrac: bool
         num = reduced.num;
         den = reduced.den;
     }
-    return { int, num, den }
+    if (num === 1 && den === 1) {
+        int++
+        num = 0;
+        den = 0;
+        return {int, hasFraction: false}
+    }
+    return { int, num, den, hasFraction: true }
 
 }

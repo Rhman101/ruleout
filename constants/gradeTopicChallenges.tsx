@@ -87,6 +87,22 @@ const gradeTopicChallenges: GradeTopicChallenge[] = [
                 topicName: 'Common Fractions',
                 challenges: [
                     {
+                        name: 'Addition: Same Denominators',
+                        generatorName: 'addFractions_same_denominator',
+                        args: {
+                            max: 12,
+                            denCanBeGreaterThanNum: false
+                        },
+                        settings: {
+                            secondsStageTwo: 60,
+                            secondsStageThree: 40,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
+                            instructions: 'Note that a / will create a fraction. Also, if the answer is a mixed number, put a space between the number and the fraction.'
+                        }
+                    },
+                    {
                         name: 'Addition: Different Denominators',
                         generatorName: 'addFractions',
                         args: {},
@@ -96,25 +112,25 @@ const gradeTopicChallenges: GradeTopicChallenge[] = [
                             questionsStageThree: 15,
                             inRowCorrectStageOne: 5,
                             inRowCorrectStageTwo: 6,
-                            instructions: ''
+                            instructions: 'Note that a / will create a fraction. Also, if the answer is a mixed number, put a space between the number and the fraction.'
                         }
-                    }, 
-                    // {
-                    //     name: 'Addition: Same Denominators',
-                    //     generatorName: 'addFractions_same_denominator',
-                    //     args: {
-                    //         max: 12,
-                    //         denCanBeGreaterThanNum: false
-                    //     },
-                    //     settings: {
-                    //         secondsStageTwo: 60,
-                    //         secondsStageThree: 40,
-                    //         questionsStageThree: 15,
-                    //         inRowCorrectStageOne: 5,
-                    //         inRowCorrectStageTwo: 6,
-                    //         instructions: ''
-                    //     }
-                    // }
+                    },
+                    {
+                        name: 'Subtraction: Same Denominator',
+                        generatorName: 'subtractFractions_same_denominator',
+                        args: {
+                            max: 12,
+                            denCanBeGreaterThanNum: false
+                        },
+                        settings: {
+                            secondsStageTwo: 30,
+                            secondsStageThree: 20,
+                            questionsStageThree: 15,
+                            inRowCorrectStageOne: 5,
+                            inRowCorrectStageTwo: 6,
+                            instructions: 'Note that a / will create a fraction. Also, if the answer is a mixed number, put a space between the number and the fraction.'
+                        }
+                    }
                 ]
             }, 
         ]

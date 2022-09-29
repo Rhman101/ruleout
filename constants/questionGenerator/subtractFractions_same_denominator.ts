@@ -6,29 +6,22 @@ interface arg {
     denCanBeGreaterThanNum: true;
 }
 
-const addFractions_same_denominator = ({ max, denCanBeGreaterThanNum }: arg): QuestionGenerator => {
-    const numeratorA = randomNumber(1, max);
-    const numeratorB = randomNumber(1, max);
+const subtractFractions_same_denominator = ({ max, denCanBeGreaterThanNum }: arg): QuestionGenerator => {
+    let numeratorA = randomNumber(1, max);
+    let numeratorB = randomNumber(1, max);
+    while (numeratorA === numeratorB) {
+        numeratorA = randomNumber(1, max);
+        numeratorB = randomNumber(1, max);
+    }
     let denominator = 1;
     if (denCanBeGreaterThanNum) {
         denominator = randomNumber(2, max);
     } else {
         denominator = randomNumber(Math.max(numeratorA, numeratorB), max + 2);
     }
-    const sumNumerators = numeratorA + numeratorB;
-
-
-    // Bug: 3/5 + 2/5 yields '' as expected answer.
-
-    // let numeratorA = 2;
-    // let numeratorB = 3;
-
-    // let sumNumerators = 5;
-    // let denominator = 5;
-
-
-
-    let { int, num, den, hasFraction } = toMixedNum(sumNumerators, denominator, true);
+    const diffNumerators = Math.max(numeratorA, numeratorB) - Math.min(numeratorA, numeratorB);
+   
+    let { int, num, den, hasFraction } = toMixedNum(diffNumerators, denominator, true);
 
     let intString = `${int > 0 ? int : ''}`;
 
@@ -40,10 +33,10 @@ const addFractions_same_denominator = ({ max, denCanBeGreaterThanNum }: arg): Qu
     return {
         question: [{
             latex: true,
-            text: `\\frac{${numeratorA}}{${denominator}}+\\frac{${numeratorB}}{${denominator}}`
+            text: `\\frac{${Math.max(numeratorA, numeratorB)}}{${denominator}}-\\frac{${Math.min(numeratorA, numeratorB)}}{${denominator}}`
         }],
         answer: [`${intString}${fracString}`]
     }
 }
 
-export default addFractions_same_denominator;
+export default subtractFractions_same_denominator;
