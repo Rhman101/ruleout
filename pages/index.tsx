@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 
   const philosophies = [{
     idea: 'Practice must be curriculum-aligned',
-    implication: 'Else students have no motivation to practice',
+    implication: 'Else students have no motivation to practice!',
   }, {
     idea: 'In math, one concept builds upon another',
     implication: 'Confidence ONLY comes from succeeding at fundamentals'
